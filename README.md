@@ -1,24 +1,39 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## targets テーブル
 
-Things you may want to cover:
+|Column|Type|Options|
+|------|----|-------|
+|max_hp|integer|null: false|
+|max_mp|integer|null: false|
+|current_hp|integer|null: false|
+|current_mp|integer|null: false|
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_one :budget
+- has_many :attack_days
 
-* Configuration
+## budgets テーブル
 
-* Database creation
+|Column|Type|Options|
+|------|----|-------|
+|attack_base|integer|null: false|
+|resist_base|integer|null: false|
+|attack|integer|null: false|
+|resist|integer|null: false|
+|target|references|null: false, foreign_key: true|
 
-* Database initialization
+### Association
 
-* How to run the test suite
+-belongs_to :target
 
-* Services (job queues, cache servers, search engines, etc.)
+## attack_days テーブル
 
-* Deployment instructions
+|Column|Type|Options|
+|------|----|-------|
+|date|date||
 
-* ...
+### Association
+
+-belongs_to :target
