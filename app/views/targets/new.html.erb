@@ -1,0 +1,21 @@
+<h2>目標設定</h2>
+
+<%= form_with model: @target, url: targets_path, local: true do |f| %>
+  <div class="field">
+    <div class="message">
+      いくら貯めますか?
+    </div>
+    <%= f.text_field :max_hp, placeholder: "1000000" %>円
+  </div>
+
+  <div class="field">
+    <div class="message">
+      いつまでに貯めますか?
+    </div>
+    <%= f.text_field :max_mp, placeholder: "100" %>日
+  </div>
+
+  <div class="actions">
+    <%= f.submit "1日に使える金額を決めよう" %>
+  </div>
+<% end %>
