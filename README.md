@@ -1,5 +1,12 @@
 # テーブル設計
 
+## users テーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|email|string|null: false|
+|password|string|null: false|
+
 ## targets テーブル
 
 |Column|Type|Options|
