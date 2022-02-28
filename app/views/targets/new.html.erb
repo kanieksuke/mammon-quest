@@ -1,0 +1,26 @@
+<h2>目標設定</h2>
+
+<%= form_with model: @target, url: targets_path, local: true do |f| %>
+<%= render 'shared/error_messages', model: @target %>
+  <div class="field">
+    <div class="message">
+      いくら貯めますか?
+    </div>
+    <div class="form">
+      <%= f.text_field :target_amount, placeholder: "1000000" %><span>円</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="message">
+      いつまでに貯めますか?
+    </div>
+    <div class="form">
+      <%= f.text_field :target_date, placeholder: "100" %><span>日</span>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "1日に使える金額を決めよう" %>
+  </div>
+<% end %>

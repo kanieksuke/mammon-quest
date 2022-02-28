@@ -1,0 +1,11 @@
+<% if model.errors.any? %>
+  <div class="error-alert">
+    <ul>
+      <% model.errors.full_messages.each do |message| %>
+        <% if message != "Current amount can't be blank" %>
+          <li class='error-message'><%= message %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
