@@ -7,6 +7,10 @@
 |email|string|null: false|
 |password|string|null: false|
 
+### Association
+
+- has_one :target
+
 ## targets テーブル
 
 |Column|Type|Options|
@@ -15,9 +19,11 @@
 |target_date|integer|null: false|
 |current_amount|integer|null: false|
 |current_date|integer|null: false|
+|user|references|null: false, foreign_key: true|
 
 ### Association
 
+- belongs_to :user
 - has_one :budget
 - has_many :attack_days
 

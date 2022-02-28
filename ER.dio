@@ -1,14 +1,14 @@
 <mxfile host="65bd71144e">
     <diagram id="yHRTXfMH0183FnZ9Wa_6" name="ページ1">
-        <mxGraphModel dx="717" dy="515" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="459" dy="326" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="2" value="targetsテーブル" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
-                    <mxGeometry x="220" y="60" width="220" height="110" as="geometry"/>
+                    <mxGeometry x="220" y="60" width="230" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="target_amount (integer型, NOT NULL)&#10;target_date (integer型, NOT NULL)&#10;current_amount (integer型, NOT NULL)&#10;current_date (integer型, NOT NULL)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="2" vertex="1">
-                    <mxGeometry y="30" width="220" height="80" as="geometry"/>
+                <mxCell id="3" value="target_amount (integer型, NOT NULL)&#10;target_date (integer型, NOT NULL)&#10;current_amount (integer型, NOT NULL)&#10;current_date (integer型, NOT NULL)&#10;user (reference型, NOT NULL, 外部キー)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="2" vertex="1">
+                    <mxGeometry y="30" width="230" height="90" as="geometry"/>
                 </mxCell>
                 <mxCell id="4" value="budgetsテーブル" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
                     <mxGeometry x="40" y="210" width="240" height="120" as="geometry"/>
@@ -31,16 +31,16 @@
                 <mxCell id="9" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;startArrow=ERmandOne;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="3" edge="1">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
                         <mxPoint x="430" y="190" as="sourcePoint"/>
-                        <mxPoint x="500" y="208" as="targetPoint"/>
+                        <mxPoint x="510" y="208" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="10" value="usersテーブル" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                <mxCell id="10" value="usersテーブル" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
                     <mxGeometry x="520" y="20" width="250" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="email(string型, NOT NULL, ユニーク制約)&#10;encrypted_password(string型, NOT NULL)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="10">
+                <mxCell id="11" value="email(string型, NOT NULL, ユニーク制約)&#10;encrypted_password(string型, NOT NULL)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="10" vertex="1">
                     <mxGeometry y="30" width="250" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="12" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToOne;startArrow=ERmandOne;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="11" target="3">
+                <mxCell id="12" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToOne;startArrow=ERmandOne;entryX=1;entryY=0;entryDx=0;entryDy=0;" parent="1" source="11" target="3" edge="1">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
                         <mxPoint x="540" y="240" as="sourcePoint"/>
                         <mxPoint x="640" y="140" as="targetPoint"/>

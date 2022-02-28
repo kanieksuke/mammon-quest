@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2022_02_28_082338) do
     t.integer "target_date", null: false
     t.integer "current_amount", null: false
     t.integer "current_date", null: false
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
