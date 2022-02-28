@@ -1,6 +1,7 @@
 <h2>目標設定</h2>
 
 <%= form_with model: @target, url: targets_path, local: true do |f| %>
+<%= render 'shared/error_messages', model: @target %>
   <div class="field">
     <div class="message">
       いくら貯めますか?
