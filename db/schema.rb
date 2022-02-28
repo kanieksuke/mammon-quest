@@ -13,10 +13,10 @@
 ActiveRecord::Schema.define(version: 2022_02_27_123832) do
 
   create_table "targets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.integer "max_hp", null: false
-    t.integer "max_mp", null: false
-    t.integer "current_hp", null: false
-    t.integer "current_mp", null: false
+    t.integer "target_amount", null: false
+    t.integer "target_date", null: false
+    t.integer "current_amount", null: false
+    t.integer "current_date", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

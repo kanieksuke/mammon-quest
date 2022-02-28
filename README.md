@@ -4,10 +4,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|max_hp|integer|null: false|
-|max_mp|integer|null: false|
-|current_hp|integer|null: false|
-|current_mp|integer|null: false|
+|target_amount|integer|null: false|
+|target_date|integer|null: false|
+|current_amount|integer|null: false|
+|current_date|integer|null: false|
 
 ### Association
 
@@ -18,8 +18,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|attack_base|integer|null: false|
-|resist_base|integer|null: false|
+|income|integer|null: false|
+|fixed-cost|integer|null: false|
 |attack|integer|null: false|
 |resist|integer|null: false|
 |target|references|null: false, foreign_key: true|

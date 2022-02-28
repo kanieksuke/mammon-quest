@@ -25,11 +25,11 @@ class TargetsController < ApplicationController
   end
 
   def target_params
-    params.require(:target).permit(:max_hp, :max_mp)
+    params.require(:target).permit(:target_amount, :target_date)
   end
 
   def target_params_addition
-    @target.current_hp = @target.max_hp
-    @target.current_mp = 0
+    @target.current_amount = @target.target_amount
+    @target.current_date = 0
   end
 end
