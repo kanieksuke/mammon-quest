@@ -25,7 +25,7 @@ class TargetsController < ApplicationController
   end
 
   def target_params
-    params.permit(:max_hp, :max_mp)
+    params.require(:target).permit(:max_hp, :max_mp)
   end
 
   def target_params_addition
