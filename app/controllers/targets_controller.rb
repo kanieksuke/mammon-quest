@@ -1,6 +1,7 @@
 class TargetsController < ApplicationController
   before_action :move_to_new, only: [:index]
   def index
+    @target = Target.find(params[:id])
   end
 
   def new
