@@ -5,14 +5,18 @@
     <div class="message">
       いくら貯めますか?
     </div>
-    <%= f.text_field :max_hp, placeholder: "1000000" %>円
+    <div class="form">
+      <%= f.text_field :max_hp, placeholder: "1000000" %><span>円</span>
+    </div>
   </div>
 
   <div class="field">
     <div class="message">
       いつまでに貯めますか?
     </div>
-    <%= f.text_field :max_mp, placeholder: "100" %>日
+    <div class="form">
+      <%= f.text_field :max_mp, placeholder: "100" %><span>日</span>
+    </div>
   </div>
 
   <div class="actions">
