@@ -1,1 +1,25 @@
 <h2>収支入力</h2>
+<%= form_with model: @budget, url: target_budgets_path, local: true do |f| %>
+<%= render 'shared/error_messages', model: @budget %>
+  <div class="field">
+    <div class="message">
+      先月の収入を入力してください
+    </div>
+    <div class="form">
+      <%= f.text_field :incum, placeholder: "250000" %><span>円</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="message">
+      先月の固定費を入力してください
+    </div>
+    <div class="form">
+      <%= f.text_field :fixed_cost, placeholder: "120000" %><span>円</span>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "戦闘開始!" %>
+  </div>
+<% end %>

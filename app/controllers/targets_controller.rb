@@ -30,7 +30,6 @@ class TargetsController < ApplicationController
   end
 
   def target_params_addition
-    @user.target_id = current_user.id
     @target.current_amount = @target.target_amount
     @target.current_date = 0
   end
