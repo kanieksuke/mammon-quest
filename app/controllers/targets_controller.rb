@@ -1,6 +1,7 @@
 class TargetsController < ApplicationController
   before_action :move_to_new, only: [:index]
   def index
+    @user = User.find(params[:id])
   end
 
   def new
@@ -20,15 +21,16 @@ class TargetsController < ApplicationController
   private
   def move_to_new
     if @target == nil
-      render new_target_path
+      redirect_to new_target_path
     end
   end
 
   def target_params
-    params.require(:target).permit(:target_amount, :target_date)
+    params.require(:target).permit(:target_amount, :target_date).merge(user_id: current_user.id)
   end
 
   def target_params_addition
+    @user.target_id = current_user.id
     @target.current_amount = @target.target_amount
     @target.current_date = 0
   end

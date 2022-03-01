@@ -5,6 +5,7 @@ class CreateTargets < ActiveRecord::Migration[6.0]
       t.integer :target_date, null: false
       t.integer :current_amount, null: false
       t.integer :current_date, null: false
+      t.integer :user_id
       t.timestamps
     end
   end

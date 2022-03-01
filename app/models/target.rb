@@ -5,4 +5,5 @@ class Target < ApplicationRecord
     validates :current_amount, numericality: {only_integer: true}
     validates :current_date, numericality: {only_integer: true}
   end
+  belongs_to :user
 end
