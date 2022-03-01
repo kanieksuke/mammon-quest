@@ -9,7 +9,7 @@
 
 ### Association
 
-- has_one :target
+- has_many :targets
 
 ## targets テーブル
 
@@ -24,7 +24,7 @@
 ### Association
 
 - belongs_to :user
-- has_one :budget
+- has_many :budgets
 - has_many :attack_days
 
 ## budgets テーブル
