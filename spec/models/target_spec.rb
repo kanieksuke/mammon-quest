@@ -7,7 +7,7 @@ RSpec.describe Target, type: :model do
 
   describe '目標設定' do
     context '目標データが保存される場合' do
-      it '目標金額、目標期日を適正に入力すれば本尊される' do
+      it '目標金額、目標期日を適正に入力すれば保存される' do
         expect(@target).to be_valid
       end
     end
@@ -61,6 +61,11 @@ RSpec.describe Target, type: :model do
         @target.current_date = 'hoge'
         @target.valid?
         expect(@target.errors.full_messages).to include("Current date is not a number")
+      end
+      it 'ユーザーが紐付いていないと保存されない' do
+        @target.user = nil
+        @target.valid?
+        expect(@target.errors.full_messages).to include('User must exist')
       end
     end
   end

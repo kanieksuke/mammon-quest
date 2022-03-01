@@ -4,5 +4,6 @@ FactoryBot.define do
     target_date    {90}
     current_amount {300000}
     current_date   {0}
+    association :user
   end
 end
