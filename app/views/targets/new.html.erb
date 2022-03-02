@@ -1,6 +1,7 @@
 <h2>初期設定</h2>
 
-<%= form_with url: targets_path, local: true do |f| %>
+<%= form_with model: @target_budget, url: targets_path, local: true do |f| %>
+  <%= render 'shared/error_messages', model: @target_budget %>
   <div class="field">
     <div class="message">
       いくら貯めますか?
