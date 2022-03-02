@@ -6,4 +6,5 @@ class Target < ApplicationRecord
     validates :current_date, numericality: {only_integer: true}
   end
   belongs_to :user
+  has_many :budgets
 end

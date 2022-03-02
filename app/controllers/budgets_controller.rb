@@ -20,7 +20,11 @@ class BudgetsController < ApplicationController
 
   def budget_params_addition
     d = Date.new(Time.now.year, Time.now.month, -1).day
-    @budget.attack = (@budget.income - @budget.fixed_cost) / d
+    if @budget.income =! nil && @budget.fixed_cost =! nil
+      @budget.attack = (@budget.income - @budget.fixed_cost) / d
+    else
+      @budget.attack = 0
+    end
     @budget.resist = 0
   end
 
