@@ -1,7 +1,6 @@
-<h2>目標設定</h2>
+<h2>初期設定</h2>
 
-<%= form_with model: @target, url: targets_path, local: true do |f| %>
-<%= render 'shared/error_messages', model: @target %>
+<%= form_with url: targets_path, local: true do |f| %>
   <div class="field">
     <div class="message">
       いくら貯めますか?
@@ -20,7 +19,25 @@
     </div>
   </div>
 
+  <div class="field">
+    <div class="message">
+      先月の収入を入力してください
+    </div>
+    <div class="form">
+      <%= f.text_field :income, placeholder: "250000" %><span>円</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="message">
+      先月の固定費を入力してください
+    </div>
+    <div class="form">
+      <%= f.text_field :fixed_cost, placeholder: "120000" %><span>円</span>
+    </div>
+  </div>
+
   <div class="actions">
-    <%= f.submit "1日に使える金額を決めよう" %>
+    <%= f.submit "戦闘開始!" %>
   </div>
 <% end %>

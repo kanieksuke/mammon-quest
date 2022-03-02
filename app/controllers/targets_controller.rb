@@ -5,7 +5,6 @@ class TargetsController < ApplicationController
   end
 
   def new
-    @target = Target.new
   end
 
   def create
@@ -21,7 +20,7 @@ class TargetsController < ApplicationController
   private
   def move_to_new
     if @target == nil
-      redirect_to new_target_path
+       redirect_to new_target_path
     end
   end
 
