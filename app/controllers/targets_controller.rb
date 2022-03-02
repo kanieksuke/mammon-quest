@@ -6,14 +6,15 @@ class TargetsController < ApplicationController
   end
 
   def new
+    @target_budget = TargetBudget.new
   end
 
   def create
-    @target = Target.new(target_params)
-    @budget = Budget.new(budget_params)
+    @target_budget = TargetBudget.new(target_params)
     target_budget_params_addition
-    if @target.save && @budget.save
-      redirect_to new_target_budget_path(@target)
+    if @target_budget.valid?
+      @target_budget.save
+      redirect_to root_path(@target_budget)
     else
       render :new
     end
@@ -21,17 +22,13 @@ class TargetsController < ApplicationController
 
   private
   def move_to_new
-    if @target == nil
+    if @target_budget == nil
        redirect_to new_target_path
     end
   end
 
   def target_params
-    params.require(:target).permit(:target_amount, :target_date).merge(user_id: current_user.id)
-  end
-
-  def budget_params
-    params.require(:budget).permit(:income, :fixed_cost).merge(user_id: current_user.id, target_id: params[:target_id])
+    params.require(:target_budget).permit(:target_amount, :target_date:income, :fixed_cost).merge(user_id: current_user.id)
   end
 
   def target_budget_params_addition
