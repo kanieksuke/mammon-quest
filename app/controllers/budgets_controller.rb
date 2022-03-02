@@ -15,13 +15,13 @@ class BudgetsController < ApplicationController
 
   private
   def budget_params
-    params.require(:budget).permit(:incum, :fixed_cost).merge(user_id: current_user.id, target_id: params[:target_id])
+    params.require(:budget).permit(:income, :fixed_cost).merge(user_id: current_user.id, target_id: params[:target_id])
   end
 
   def budget_params_addition
     d = Date.new(Time.now.year, Time.now.month, -1).day
-    @budget.attack = (@budget.incum - @budget.fixed_cost) / d
-    @resist = 0
+    @budget.attack = (@budget.income - @budget.fixed_cost) / d
+    @budget.resist = 0
   end
 
 end
