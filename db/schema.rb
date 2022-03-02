@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2022_03_01_122114) do
     t.integer "fixed_cost", null: false
     t.integer "attack", null: false
     t.integer "resist", null: false
+    t.integer "user_id"
     t.integer "target_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

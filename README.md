@@ -10,6 +10,7 @@
 ### Association
 
 - has_many :targets
+- has_many :budgets
 
 ## targets テーブル
 
@@ -39,6 +40,7 @@
 
 ### Association
 
+-belongs_to :user
 -belongs_to :target
 
 ## attack_days テーブル
