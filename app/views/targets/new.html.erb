@@ -1,5 +1,4 @@
 <h2>初期設定</h2>
-
 <%= form_with model: @target_budget, url: targets_path, local: true do |f| %>
   <%= render 'shared/error_messages', model: @target_budget %>
   <div class="field">
@@ -7,37 +6,33 @@
       いくら貯めますか?
     </div>
     <div class="form">
-      <%= f.text_field :target_amount, placeholder: "1000000" %><span>円</span>
+      <%= f.number_field :target_amount, placeholder: "1000000", min: 1 %><span>円</span>
     </div>
   </div>
-
   <div class="field">
     <div class="message">
       いつまでに貯めますか?
     </div>
     <div class="form">
-      <%= f.text_field :target_date, placeholder: "100" %><span>日</span>
+      <%= f.number_field :target_date, placeholder: "100", min: 1 %><span>日</span>
     </div>
   </div>
-
   <div class="field">
     <div class="message">
       先月の収入を入力してください
     </div>
     <div class="form">
-      <%= f.text_field :income, placeholder: "250000" %><span>円</span>
+      <%= f.number_field :income, placeholder: "250000" %><span>円</span>
     </div>
   </div>
-
   <div class="field">
     <div class="message">
       先月の固定費を入力してください
     </div>
     <div class="form">
-      <%= f.text_field :fixed_cost, placeholder: "120000" %><span>円</span>
+      <%= f.number_field :fixed_cost, placeholder: "120000" %><span>円</span>
     </div>
   </div>
-
   <div class="actions">
     <%= f.submit "戦闘開始!" %>
   </div>
