@@ -1,8 +1,10 @@
 class TargetsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :move_to_new, only: [:index]
-  def index
-    @user = User.find(params[:id])
+
+  def edit
+    @target_budget = TargetBudget.new
+    if current_user.target == nil
+      render :new
+    end
   end
 
   def new
@@ -14,18 +16,12 @@ class TargetsController < ApplicationController
     target_budget_params_addition
     if @target_budget.valid?
       @target_budget.save
-      redirect_to root_path(@target_budget)
     else
       render :new
     end
   end
 
   private
-  def move_to_new
-    if @target_budget == nil
-       redirect_to new_target_path
-    end
-  end
 
   def target_params
     params.require(:target_budget).permit(:target_amount, :target_date, :income, :fixed_cost).merge(user_id: current_user.id)
