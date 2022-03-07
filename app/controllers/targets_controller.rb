@@ -25,7 +25,6 @@ class TargetsController < ApplicationController
   def index
     @targets = Target.includes(:user).order("created_at DESC")
     @budgets = Budget.includes(:user).order("created_at DESC")
-    binding.pry
   end
 
   private

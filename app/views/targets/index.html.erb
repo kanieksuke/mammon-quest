@@ -6,6 +6,7 @@
   <div class='text'>
     目標期日:<%= target.target_date %>日
   </div>
+  <%= link_to "戦闘開始!", root_path(target.id) %>
   <% break %>
 <% end %>
 <% @budgets.each do |budget| %>
@@ -18,5 +19,3 @@
   <% break %>
 <% end %>
 <div class='link'>
-  <%= link_to "戦闘開始!", root_path(@targets), method: :get %>
-<div>
