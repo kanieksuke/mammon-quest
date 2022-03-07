@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 2022_03_01_122114) do
   create_table "budgets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "income", null: false
     t.integer "fixed_cost", null: false
-    t.integer "attack", null: false
     t.integer "resist", null: false
     t.integer "user_id"
     t.integer "target_id"

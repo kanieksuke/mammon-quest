@@ -30,14 +30,6 @@ class TargetsController < ApplicationController
   def target_budget_params_addition
     @target_budget.current_amount = @target_budget.target_amount
     @target_budget.current_date = 0
-    d = Date.new(Time.now.year, Time.now.month, -1).day
-    if @target_budget.income =! nil && @target_budget.fixed_cost =! nil
-      @target_budget.income = params[:income].to_i
-      @target_budget.fixed_cost = params[:fixed_cost].to_i  
-      @target_budget.attack = ( @target_budget.income - @target_budget.fixed_cost ) / d
-    else
-      @target_budget.attack = 0
-    end
     @target_budget.resist = 0
   end
 end
