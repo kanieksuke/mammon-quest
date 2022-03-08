@@ -1,4 +1,5 @@
 class TargetsController < ApplicationController
+  before_action :move_to_edit, only: [:new, :create]
 
   def edit
     @target_budget = TargetBudget.new
@@ -43,5 +44,11 @@ class TargetsController < ApplicationController
     @target_budget.current_amount = @target_budget.target_amount
     @target_budget.current_date = 0
     @target_budget.resist = 0
+  end
+
+  def move_to_edit
+    unless current_user.target == nil
+      redirect_to edit_target_path
+    end
   end
 end
