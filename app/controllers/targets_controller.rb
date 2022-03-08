@@ -11,6 +11,13 @@ class TargetsController < ApplicationController
     @target_budget = TargetBudget.new
   end
 
+  def destroy
+    @target_budget = TargetBudget.new
+    target = Target.find(params[:id])
+    target.destroy
+    render :new
+  end
+
   def create
     @target_budget = TargetBudget.new(target_params)
     target_budget_params_addition

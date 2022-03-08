@@ -12,7 +12,8 @@
   <div class='text'>
     先月の固定費:<%= target.budget.fixed_cost %>円
   </div>
-  <%= link_to "戦闘開始!", root_path(target.id) %>
+  <div class='links'>
+    <%= link_to "戦闘開始!", root_path(target.id) %>
+    <%= link_to "やり直す", target_path(target.id), method: :delete %>
   <% break %>
 <% end %>
-<div class='link'>
