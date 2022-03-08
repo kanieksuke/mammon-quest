@@ -7,6 +7,7 @@ class TargetsController < ApplicationController
       render :new
     end
     @user = current_user
+    create_attack
   end
 
   def new
@@ -51,5 +52,10 @@ class TargetsController < ApplicationController
     unless current_user.target == nil
       redirect_to edit_target_path
     end
+  end
+
+  def create_attack
+    d = Date.new(Time.now.year, Time.now.month, -1).day
+    @attack = (@user.target.budget.income - @user.target.budget.fixed_cost) / d
   end
 end
