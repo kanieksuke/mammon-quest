@@ -6,6 +6,7 @@ class TargetsController < ApplicationController
     if current_user.target == nil
       render :new
     end
+    @user = current_user
   end
 
   def new

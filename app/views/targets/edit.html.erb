@@ -1,1 +1,34 @@
-<h1>戦闘画面</h1>
+<div class="wrapper">
+  <div class="side-bar">
+    <input class="form-submit" id="attack_button" type="submit" value="攻撃をする">
+    <div class="order-form">
+      <div class="form-input">
+        <input class="form-message">
+      </div>
+      <input class="form-submit" type="submit" value="買物をする">
+    </div>
+    <input type="hidden" class='income' income='@user.income'>
+    <input type="hidden" class='fixed_cost' fixed_cost='@user.fixed_cost'>
+    <div class="damage">
+      <span>想定ダメージ:</span>
+      <span id="damage_status"></span>
+    </div>
+  </div>
+  <div class="main">
+    <div class="mammon">
+      <%= image_tag 'pose-akuma2.jpeg' %>
+    </div>
+    <div class="text">
+      HP:
+      <span id="current_hp"><%= @user.target.current_amount %></span>
+      /
+      <span id="max_hp"><%= @user.target.target_amount %></span>
+    </div>
+    <div class="text">
+      MP:
+      <span><%= @user.target.current_date %></span>
+      /
+      <span><%= @user.target.target_date %></span>
+    </div>
+  </div>
+</div>

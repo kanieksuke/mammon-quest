@@ -2,6 +2,18 @@
   display: flex;
 }
 
+.side-bar {
+  width: 20vw;
+}
+
+.form-submit {
+  margin-bottom: 20px;
+}
+
+.main {
+  width: 80vw;
+}
+
 * {
   color: white;
   background-color: black;
