@@ -1,1 +1,19 @@
-<h1>戦闘画面</h1>
+<h2>これでよろしいですか？</h2>
+<% @targets.each do |target| %>
+  <div class='text'>
+    目標金額:<%= target.target_amount %>円
+  </div>
+  <div class='text'>
+    目標期日:<%= target.target_date %>日
+  </div>
+  <div class='text'>
+    先月の収入:<%= target.budget.income %>円
+  </div>
+  <div class='text'>
+    先月の固定費:<%= target.budget.fixed_cost %>円
+  </div>
+  <div class='links'>
+    <%= link_to "戦闘開始!", root_path(target.id) %>
+    <%= link_to "やり直す", target_path(target.id), method: :delete %>
+  <% break %>
+<% end %>

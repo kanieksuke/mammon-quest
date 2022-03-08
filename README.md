@@ -10,6 +10,7 @@
 ### Association
 
 - has_many :targets
+- has_many :budgets
 
 ## targets テーブル
 
@@ -32,13 +33,14 @@
 |Column|Type|Options|
 |------|----|-------|
 |income|integer|null: false|
-|fixed-cost|integer|null: false|
+|fixed_cost|integer|null: false|
 |attack|integer|null: false|
 |resist|integer|null: false|
 |target|references|null: false, foreign_key: true|
 
 ### Association
 
+-belongs_to :user
 -belongs_to :target
 
 ## attack_days テーブル
