@@ -1,6 +1,8 @@
 <div class="wrapper">
   <div class="side-bar">
-    <input class="form-submit" id="attack_button" type="submit" value="攻撃をする">
+    <%= form_with model: @target, url: target_path, local: true do |f| %>
+      <%= f.submit "攻撃をする" %>
+    <% end %>
     <div class="order-form">
       <div class="form-input">
         <input class="form-message">
@@ -20,15 +22,15 @@
     </div>
     <div class="text">
       HP:
-      <span id="current_hp"><%= @user.target.current_amount %></span>
+      <span id="current_hp"><%= @target.current_amount %></span>
       /
-      <span id="max_hp"><%= @user.target.target_amount %></span>
+      <span id="max_hp"><%= @target.target_amount %></span>
     </div>
     <div class="text">
       MP:
-      <span><%= @user.target.current_date %></span>
+      <span><%= @target.current_date %></span>
       /
-      <span><%= @user.target.target_date %></span>
+      <span><%= @target.target_date %></span>
     </div>
   </div>
 </div>
