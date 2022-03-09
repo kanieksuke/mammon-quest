@@ -11,8 +11,8 @@ class TargetsController < ApplicationController
   end
 
   def destroy
-    target = Target.find(params[:id])
-    target.destroy
+    targets = Targets.includes(:user)
+    targets.destroy
     render :new
   end
 
@@ -57,6 +57,7 @@ class TargetsController < ApplicationController
   def target_budget_params_addition
     @target_budget.current_amount = @target_budget.target_amount
     @target_budget.current_date = 0
+    @target_budget.resist = 0
   end
 
   def move_to_edit
