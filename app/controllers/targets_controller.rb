@@ -21,7 +21,7 @@ class TargetsController < ApplicationController
     target_budget_params_addition
     if @target_budget.valid?
       @target_budget.save
-      redirect_to targets_path(@target_budget)
+      redirect_to targets_path
     else
       render :new
     end
@@ -44,7 +44,7 @@ class TargetsController < ApplicationController
       @target.destroy
       render :new
     else
-      redirect_to edit_target_path
+      redirect_to edit_target_path(@target.id)
     end
   end
 
