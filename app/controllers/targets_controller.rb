@@ -1,6 +1,6 @@
 class TargetsController < ApplicationController
   before_action :move_to_edit, only: [:new, :create]
-  before_action :error_breaker, only: [:edit, :new, :destroy]
+  before_action :error_breaker, only: [:edit, :new, :destroy, :update]
 
   def edit
     @target = Target.find(params[:id])
@@ -28,6 +28,9 @@ class TargetsController < ApplicationController
   end
 
   def index
+    if current_user.target == nil
+      redirect_to new_target_path
+    end
     @targets = Target.includes(:user).order("created_at DESC")
   end
 
@@ -37,7 +40,12 @@ class TargetsController < ApplicationController
     @target.current_amount -= @attack
     @target.current_date += 1
     @target.save
-    redirect_to edit_target_path
+    if @target.current_amount < 0 || @target.current_date == @target.target_date
+      @target.destroy
+      render :new
+    else
+      redirect_to edit_target_path
+    end
   end
 
   private
