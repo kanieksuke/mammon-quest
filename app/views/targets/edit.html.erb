@@ -1,1 +1,36 @@
-<h1>戦闘画面</h1>
+<div class="wrapper">
+  <div class="side-bar">
+    <%= form_with model: @target, url: target_path, local: true do |f| %>
+      <%= f.submit "攻撃をする" %>
+    <% end %>
+    <div class="order-form">
+      <div class="form-input">
+        <input class="form-message">
+      </div>
+      <input class="form-submit" type="submit" value="買物をする">
+    </div>
+    <input type="hidden" class='income' income='@user.income'>
+    <input type="hidden" class='fixed_cost' fixed_cost='@user.fixed_cost'>
+    <div class="damage">
+      <span>想定ダメージ:</span>
+      <%= @attack %>
+    </div>
+  </div>
+  <div class="main">
+    <div class="mammon">
+      <%= image_tag 'pose-akuma2.jpeg' %>
+    </div>
+    <div class="text">
+      HP:
+      <span id="current_hp"><%= @target.current_amount %></span>
+      /
+      <span id="max_hp"><%= @target.target_amount %></span>
+    </div>
+    <div class="text">
+      MP:
+      <span><%= @target.current_date %></span>
+      /
+      <span><%= @target.target_date %></span>
+    </div>
+  </div>
+</div>
