@@ -1,5 +1,5 @@
 class TargetsController < ApplicationController
-  before_action :move_to_edit, only: :new
+  before_action :move_to_edit, only: [:new, :create]
   before_action :error_breaker, only: [:edit, :new, :destroy, :update]
 
   def edit
@@ -11,9 +11,8 @@ class TargetsController < ApplicationController
   end
 
   def destroy
-    targets = Targets.includes(:user)
-    targets.destroy
-    render :new
+    target = Target.find_by(:user)
+    target.destroy()
   end
 
   def create
@@ -28,7 +27,7 @@ class TargetsController < ApplicationController
   end
 
   def index
-    if current_user.target == nil
+    if current_user.target.shopping == nil
       redirect_to new_target_path
     end
     @targets = Target.includes(:user).order("created_at DESC")
@@ -57,12 +56,11 @@ class TargetsController < ApplicationController
   def target_budget_params_addition
     @target_budget.current_amount = @target_budget.target_amount
     @target_budget.current_date = 0
-    @target_budget.resist = 0
   end
 
   def move_to_edit
     unless current_user.target == nil
-      redirect_to edit_target_path
+      redirect_to edit_target_path(current_user.target)
     end
   end
 
