@@ -1,5 +1,5 @@
 class TargetsController < ApplicationController
-  before_action :move_to_edit, only: [:new, :create]
+  before_action :move_to_edit, only: :new
   before_action :error_breaker, only: [:edit, :new, :destroy, :update]
 
   def edit
