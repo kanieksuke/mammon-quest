@@ -44,6 +44,7 @@ class TargetsController < ApplicationController
     @shopping = @target.shopping
     create_attack
     @target.current_amount -= @attack
+    Message.create(text: "マモンに#{@attack}のダメージ!!", target_id: @target.id)
     @target.current_date += 1
     @target.shopping.resist = 0
     @target.attack_date = Date.today

@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :targets, only: [:edit, :new, :create, :index, :destroy, :update] do
     resources :budgets, only: [:new, :create, :edit, :update]
     resources :shoppings, only: [:create, :update]
+    resources :messages, only: :create
   end
 end
