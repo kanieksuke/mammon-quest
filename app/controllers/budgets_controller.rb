@@ -1,4 +1,5 @@
 class BudgetsController < ApplicationController
+  before_action :move_to_new, only: [:edit, :update]
 
   def edit
     @budget = Budget.find(params[:id])
@@ -19,5 +20,11 @@ class BudgetsController < ApplicationController
   def create_attack
     d = Date.new(Time.now.year, Time.now.month, -1).day
     @attack = (@target.budget.income - @target.budget.fixed_cost) / d - @target.shopping.resist
+  end
+
+  def move_to_new
+    if current_user.target == nil
+      redirect_to new_target_path
+    end
   end
 end

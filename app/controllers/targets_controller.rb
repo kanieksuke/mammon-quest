@@ -1,4 +1,5 @@
 class TargetsController < ApplicationController
+  before_action :move_to_new, only: [:edit, :destroy, :index, :update]
   before_action :move_to_edit, only: [:new, :create]
   before_action :error_breaker, only: [:edit, :new, :destroy, :update]
 
@@ -29,9 +30,6 @@ class TargetsController < ApplicationController
   end
 
   def index
-    if current_user.target == nil
-      redirect_to new_target_path
-    end
     @targets = Target.includes(:user).order("created_at DESC")
   end
 
@@ -75,6 +73,12 @@ class TargetsController < ApplicationController
   def move_to_edit
     unless current_user.target == nil
       redirect_to edit_target_path(current_user.target)
+    end
+  end
+
+  def move_to_new
+    if current_user.target == nil
+      redirect_to new_target_path
     end
   end
 
