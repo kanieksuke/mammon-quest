@@ -68,7 +68,7 @@ class TargetsController < ApplicationController
 
   def create_attack
     d = Date.new(Time.now.year, Time.now.month, -1).day
-    @attack = (@target.budget.income - @target.budget.fixed_cost) / d
+    @attack = (@target.budget.income - @target.budget.fixed_cost) / d - @target.shopping.resist
   end
 
   def error_breaker
