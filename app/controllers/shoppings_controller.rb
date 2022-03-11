@@ -1,11 +1,16 @@
 class ShoppingsController < ApplicationController
 
   def create
-    @shopping = Shopping.create(shopping_params)
-    redirect_to edit_target_path(@shopping.id)
   end
 
   def update
+    @target = Target.find(params[:id])
+    @current_shopping = Shopping.find(params[:id])
+    shopping = Shopping.new(shopping_params)
+    @current_shopping.resist += shopping.resist
+    @current_shopping.save
+    shopping.destroy
+    redirect_to edit_target_path(@target.id)
   end
 
   private

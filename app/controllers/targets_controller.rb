@@ -4,7 +4,7 @@ class TargetsController < ApplicationController
 
   def edit
     @target = Target.find(params[:id])
-    @shopping = Shopping.new
+    @shopping = Shopping.find(params[:id])
     create_attack
   end
 
