@@ -36,10 +36,13 @@ class TargetsController < ApplicationController
 
   def update
     @target = Target.find(params[:id])
+    @shopping = @target.shopping
     create_attack
     @target.current_amount -= @attack
     @target.current_date += 1
+    @target.shopping.resist = 0
     @target.save
+    @shopping.save
     if @target.current_amount < 0 || @target.current_date == @target.target_date
       @target.destroy
       render :new
