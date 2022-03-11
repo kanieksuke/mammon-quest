@@ -5,7 +5,7 @@
     </div>
     <div class="battle-form">
       <%= form_with model: @target, url: target_path, local: true do |f| %>
-        <%= f.submit "攻撃をする" %>
+        <%= f.submit "攻撃をする", id: "attack-button" %>
       <% end %>
     </div>
     <div class="battle-form">
