@@ -35,12 +35,17 @@ class TargetsController < ApplicationController
   end
 
   def update
+    require 'date'
     @target = Target.find(params[:id])
+    if @target.attack_date == Date.today
+      redirect_to edit_target_path(@target.id) and return
+    end
     @shopping = @target.shopping
     create_attack
     @target.current_amount -= @attack
     @target.current_date += 1
     @target.shopping.resist = 0
+    @target.attack_date = Date.today
     @target.save
     @shopping.save
     if @target.current_amount < 0 || @target.current_date == @target.target_date
