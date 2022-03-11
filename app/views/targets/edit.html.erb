@@ -3,10 +3,12 @@
     <div class="calendar">
       <%= Date.current.strftime('%Y/%m/%d') %>
     </div>
-    <%= form_with model: @target, url: target_path, local: true do |f| %>
-      <%= f.submit "攻撃をする" %>
-    <% end %>
-    <div class="order-form">
+    <div class="battle-form">
+      <%= form_with model: @target, url: target_path, local: true do |f| %>
+        <%= f.submit "攻撃をする" %>
+      <% end %>
+    </div>
+    <div class="battle-form">
       <%= form_with model: @shopping, url: target_shopping_path(@target.id), local: true do |f| %>
         <div class="form">
           <%= f.number_field :resist, min: 1 %><span>円</span>
@@ -19,6 +21,11 @@
     <div class="damage">
       <span>想定ダメージ:</span>
       <%= @attack %>
+    </div>
+    <div class="battle-form">
+      <%= form_with model: @target, url: target_path, method: :delete, local: true do |f| %>
+        <%= f.submit "あきらめる" %>
+      <% end %>
     </div>
   </div>
   <div class="main">

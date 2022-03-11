@@ -12,8 +12,9 @@ class TargetsController < ApplicationController
   end
 
   def destroy
-    target = Target.find_by(:user)
-    target.destroy()
+    target = Target.find(params[:id])
+    target.destroy
+    render :new
   end
 
   def create
