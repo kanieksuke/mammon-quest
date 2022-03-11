@@ -4,13 +4,15 @@
       <%= f.submit "攻撃をする" %>
     <% end %>
     <div class="order-form">
-      <div class="form-input">
-        <input class="form-message">
-      </div>
-      <input class="form-submit" type="submit" value="買物をする">
+      <%= form_with model: @shopping url: target_shoppings_path, local: true do |f| %>
+        <div class="form">
+          <%= f.number_field :resist, min: 1 %><span>円</span>
+        </div>
+        <div class="actions">
+          <%= f.submit "買物をする" %>
+        </div>
+      <% end %>
     </div>
-    <input type="hidden" class='income' income='@user.income'>
-    <input type="hidden" class='fixed_cost' fixed_cost='@user.fixed_cost'>
     <div class="damage">
       <span>想定ダメージ:</span>
       <%= @attack %>

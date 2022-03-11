@@ -4,6 +4,7 @@ class TargetsController < ApplicationController
 
   def edit
     @target = Target.find(params[:id])
+    @shopping = Shopping.new
     create_attack
   end
 
@@ -27,7 +28,7 @@ class TargetsController < ApplicationController
   end
 
   def index
-    if current_user.target.shopping == nil
+    if current_user.target == nil
       redirect_to new_target_path
     end
     @targets = Target.includes(:user).order("created_at DESC")
