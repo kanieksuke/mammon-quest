@@ -41,6 +41,7 @@ class TargetsController < ApplicationController
     if @target.attack_date == Date.today
       redirect_to edit_target_path(@target.id) and return
     end
+    @budget = @target.budget
     @shopping = @target.shopping
     create_attack
     @target.current_amount -= @attack
@@ -53,7 +54,8 @@ class TargetsController < ApplicationController
       @target.destroy
       render :new
     else
-      redirect_to edit_target_path(@target.id)
+      redirect_to edit_target_budget_path(@budget.id)
+      #redirect_to edit_target_path(@target.id)
     end
   end
 
