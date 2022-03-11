@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'targets#index'
   resources :targets, only: [:edit, :new, :create, :index, :destroy, :update] do
-    resources :budgets, only: [:new, :create]
+    resources :budgets, only: [:new, :create, :edit, :update]
     resources :shoppings, only: [:create, :update]
   end
 end
