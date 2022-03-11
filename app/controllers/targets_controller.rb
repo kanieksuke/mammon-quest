@@ -6,6 +6,7 @@ class TargetsController < ApplicationController
   def edit
     @target = Target.find(params[:id])
     @shopping = Shopping.find(params[:id])
+    @messages = @target.messages.includes(:target)
     create_attack
   end
 

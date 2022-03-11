@@ -45,4 +45,11 @@
       <span><%= @target.target_date %></span>
     </div>
   </div>
+  <div class="message-board">
+    <% @messages.each do |message| %>
+      <div class="text">
+        <%= message.text %>
+      </div>
+    <% end %>
+  </div>
 </div>
