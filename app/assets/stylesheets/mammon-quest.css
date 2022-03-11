@@ -6,12 +6,16 @@
   width: 20vw;
 }
 
-.form-submit {
+.form-submit, .battle-form, .calendar {
   margin-bottom: 20px;
 }
 
 .main {
   width: 80vw;
+}
+
+.damage {
+  margin-bottom: 50px;
 }
 
 * {
