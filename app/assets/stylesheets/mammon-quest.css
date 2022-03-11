@@ -11,7 +11,11 @@
 }
 
 .main {
-  width: 80vw;
+  width: 40vw;
+}
+
+.right-content {
+  width: 40vw;
 }
 
 .damage {
