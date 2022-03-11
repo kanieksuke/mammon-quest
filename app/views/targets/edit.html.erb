@@ -1,5 +1,8 @@
 <div class="wrapper">
   <div class="side-bar">
+    <div class="calendar">
+      <%= Date.current.strftime('%Y/%m/%d') %>
+    </div>
     <%= form_with model: @target, url: target_path, local: true do |f| %>
       <%= f.submit "攻撃をする" %>
     <% end %>
