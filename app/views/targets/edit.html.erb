@@ -4,7 +4,7 @@
       <%= f.submit "攻撃をする" %>
     <% end %>
     <div class="order-form">
-      <%= form_with model: @shopping url: target_shoppings_path, local: true do |f| %>
+      <%= form_with model: @shopping, url: target_shoppings_path, local: true do |f| %>
         <div class="form">
           <%= f.number_field :resist, min: 1 %><span>円</span>
         </div>
