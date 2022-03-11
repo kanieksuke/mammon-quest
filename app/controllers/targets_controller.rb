@@ -4,6 +4,7 @@ class TargetsController < ApplicationController
 
   def edit
     @target = Target.find(params[:id])
+    @shopping = Shopping.find(params[:id])
     create_attack
   end
 
@@ -11,9 +12,8 @@ class TargetsController < ApplicationController
   end
 
   def destroy
-    target = Target.find(params[:id])
-    target.destroy
-    render :new
+    target = Target.find_by(:user)
+    target.destroy()
   end
 
   def create
@@ -36,10 +36,13 @@ class TargetsController < ApplicationController
 
   def update
     @target = Target.find(params[:id])
+    @shopping = @target.shopping
     create_attack
     @target.current_amount -= @attack
     @target.current_date += 1
+    @target.shopping.resist = 0
     @target.save
+    @shopping.save
     if @target.current_amount < 0 || @target.current_date == @target.target_date
       @target.destroy
       render :new
@@ -62,13 +65,13 @@ class TargetsController < ApplicationController
 
   def move_to_edit
     unless current_user.target == nil
-      redirect_to edit_target_path
+      redirect_to edit_target_path(current_user.target)
     end
   end
 
   def create_attack
     d = Date.new(Time.now.year, Time.now.month, -1).day
-    @attack = (@target.budget.income - @target.budget.fixed_cost) / d
+    @attack = (@target.budget.income - @target.budget.fixed_cost) / d - @target.shopping.resist
   end
 
   def error_breaker
