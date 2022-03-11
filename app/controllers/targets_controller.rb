@@ -53,9 +53,10 @@ class TargetsController < ApplicationController
     if @target.current_amount < 0 || @target.current_date == @target.target_date
       @target.destroy
       render :new
-    else
+    elsif Date.today == Date.new(Time.now.year, Time.now.month, -1).day
       redirect_to edit_target_budget_path(@budget.id)
-      #redirect_to edit_target_path(@target.id)
+    else
+      redirect_to edit_target_path(@target.id)
     end
   end
 
