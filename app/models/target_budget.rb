@@ -18,4 +18,5 @@ class TargetBudget
     Budget.create(income: income, fixed_cost: fixed_cost, target_id: target.id)
     Shopping.create(resist: resist, target_id: target.id)
   end
+  
 end
