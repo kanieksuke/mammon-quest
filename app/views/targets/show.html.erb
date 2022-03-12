@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <div class="side-bar">
+      <%= form_with model: @target, url: target_path, method: :delete, local: true do |f| %>
+        <%= f.submit "はじめから" %>
+      <% end %>
+  </div>
+  <div class="main">
+    <% if @target.current_amount <= 0 %>
+      <div class="clear-image">
+        <%= image_tag 'maxresdefault.jpeg' %>
+      </div>
+    <% else %>
+      <div class="gameover-image">
+        <%= image_tag 'VXgameover1.png' %>
+      </div>
+    <% end %>
+  </div>
+  <%= render "shared/message_board", model: @messages %>
+</div>

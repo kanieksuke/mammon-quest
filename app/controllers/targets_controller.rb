@@ -49,7 +49,7 @@ class TargetsController < ApplicationController
     @target.current_amount -= @attack
     @target.current_date += 1
     if @target.current_amount <= 0
-      Message.create(text: "あなたは欲望に打ち勝ち、目標を達成しました! おめでとう!!")
+      Message.create(text: "あなたは欲望に打ち勝ち、目標を達成しました! おめでとう!!", target_id: @target.id)
       Message.create(text: "マモンをやっつけた!", target_id: @target.id)
     elsif @target.target_date == @target.current_date
       Message.create(text: "欲望に負けてしまった...", target_id: @target.id)
@@ -83,13 +83,17 @@ class TargetsController < ApplicationController
     @target.save
     @shopping.save
     if @target.current_amount < 0 || @target.current_date == @target.target_date
-      @target.destroy
-      render :new
+      redirect_to target_path(@target.id)
     elsif Date.today == Date.new(Time.now.year, Time.now.month, -1).day
       redirect_to edit_target_budget_path(@budget.id)
     else
       redirect_to edit_target_path(@target.id)
     end
+  end
+
+  def show
+    @target = Target.find(params[:id])
+    @messages = @target.messages.includes(:target).order("created_at DESC")
   end
 
   private
