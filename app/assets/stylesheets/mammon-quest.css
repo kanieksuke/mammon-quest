@@ -22,6 +22,14 @@
   margin-bottom: 50px;
 }
 
+.gameover-image {
+  margin: 0 0 0 90px;
+}
+
+.chear-image {
+  margin: 0 0 0 90px;
+}
+
 * {
   color: white;
   background-color: black;
