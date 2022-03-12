@@ -48,7 +48,14 @@ class TargetsController < ApplicationController
     create_attack
     @target.current_amount -= @attack
     @target.current_date += 1
-    if @target.target_date - @target.current_date == 1 
+    if @target.current_amount <= 0
+      Message.create(text: "あなたは欲望に打ち勝ち、目標を達成しました! おめでとう!!")
+      Message.create(text: "マモンをやっつけた!", target_id: @target.id)
+    elsif @target.target_date == @target.current_date
+      Message.create(text: "欲望に負けてしまった...", target_id: @target.id)
+      Message.create(text: "邪悪なオーラがあたりを包み込む!!", target_id: @target.id)
+      Message.create(text: "マモンはオーラを解き放った!!", target_id: @target.id)
+    elsif @target.target_date - @target.current_date == 1 
       Message.create(text: "マモンを覆うオーラが今にも解き放たれようとしている...!!", target_id: @target.id)
     elsif @target.target_date - @target.current_date == 2
       Message.create(text: "マモンを覆うオーラがどんどん膨れ上がっていく...!!", target_id: @target.id)
@@ -58,11 +65,13 @@ class TargetsController < ApplicationController
     if @attack < @shopping.resist
       Message.create(text: "マモンのHPが#{@shopping.resist-@attack}上がってしまった...!!", target_id: @target.id)
     end
-    if @target.current_date == 1
-      Message.create(text: "マモンは集中を始めた", target_id: @target.id)
-      Message.create(text: "なんと! マモンに魔力が集まり出した!!", target_id: @target.id)
-    else
-      Message.create(text: "マモンは魔力を溜めている...!!", target_id: @target.id)
+    unless @target.current_amount <= 0
+      if @target.current_date == 1
+        Message.create(text: "なんと! マモンに魔力が集まり出した!!", target_id: @target.id)
+        Message.create(text: "マモンは集中を始めた", target_id: @target.id)
+      else
+        Message.create(text: "マモンは魔力を溜めている...!!", target_id: @target.id)
+      end
     end
     if @attack > @shopping.resist
       Message.create(text: "マモンに#{@attack}のダメージ!!", target_id: @target.id)
