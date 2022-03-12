@@ -6,7 +6,9 @@ class TargetsController < ApplicationController
   def edit
     @target = Target.find(params[:id])
     @shopping = Shopping.find(params[:id])
+    @messages = @target.messages.includes(:target).order("created_at DESC")
     create_attack
+    Message.create(text: Date.today, target_id: @target.id)
   end
 
   def new
@@ -37,26 +39,61 @@ class TargetsController < ApplicationController
   def update
     require 'date'
     @target = Target.find(params[:id])
-    if @target.attack_date == Date.today
-      redirect_to edit_target_path(@target.id) and return
-    end
+    #if @target.attack_date == Date.today
+      #Message.create(text: "攻撃ができるのは一日一回までです", target_id: @target.id)
+      #redirect_to edit_target_path(@target.id) and return
+    #end
     @budget = @target.budget
     @shopping = @target.shopping
     create_attack
     @target.current_amount -= @attack
     @target.current_date += 1
+    if @target.current_amount <= 0
+      Message.create(text: "あなたは欲望に打ち克ち、目標を達成しました! おめでとう!!", target_id: @target.id)
+      Message.create(text: "マモンをやっつけた!", target_id: @target.id)
+    elsif @target.target_date == @target.current_date
+      Message.create(text: "欲望に負けてしまった...", target_id: @target.id)
+      Message.create(text: "邪悪なオーラがあたりを包み込む!!", target_id: @target.id)
+      Message.create(text: "マモンはオーラを解き放った!!", target_id: @target.id)
+    elsif @target.target_date - @target.current_date == 1 
+      Message.create(text: "マモンを覆うオーラが今にも解き放たれようとしている...!!", target_id: @target.id)
+    elsif @target.target_date - @target.current_date == 2
+      Message.create(text: "マモンを覆うオーラがどんどん膨れ上がっていく...!!", target_id: @target.id)
+    elsif @target.target_date - @target.current_date == 3
+      Message.create(text: "マモンの魔力が邪悪なオーラへと変わり、マモンを覆っていく...!!", target_id: @target.id)
+    end
+    if @attack < @shopping.resist
+      Message.create(text: "マモンのHPが#{@shopping.resist-@attack}上がってしまった...!!", target_id: @target.id)
+    end
+    unless @target.current_amount <= 0
+      if @target.current_date == 1
+        Message.create(text: "なんと! マモンに魔力が集まり出した!!", target_id: @target.id)
+        Message.create(text: "マモンは集中を始めた", target_id: @target.id)
+      else
+        Message.create(text: "マモンは魔力を溜めている...!!", target_id: @target.id)
+      end
+    end
+    if @attack > @shopping.resist
+      Message.create(text: "マモンに#{@attack}のダメージ!!", target_id: @target.id)
+    else
+      Message.create(text: "マモンにダメージを与えられませんでした...", target_id: @target.id)
+    end
     @target.shopping.resist = 0
     @target.attack_date = Date.today
     @target.save
     @shopping.save
     if @target.current_amount < 0 || @target.current_date == @target.target_date
-      @target.destroy
-      render :new
+      redirect_to target_path(@target.id)
     elsif Date.today == Date.new(Time.now.year, Time.now.month, -1).day
       redirect_to edit_target_budget_path(@budget.id)
     else
       redirect_to edit_target_path(@target.id)
     end
+  end
+
+  def show
+    @target = Target.find(params[:id])
+    @messages = @target.messages.includes(:target).order("created_at DESC")
   end
 
   private

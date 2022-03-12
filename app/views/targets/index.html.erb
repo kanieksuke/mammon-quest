@@ -1,4 +1,4 @@
-<h2>これでよろしいですか？</h2>
+<h2>確認画面</h2>
 <% @targets.each do |target| %>
   <div class='text'>
     目標金額:<%= target.target_amount %>円
@@ -16,7 +16,7 @@
     一日あたり<%= ((target.budget.income - target.budget.fixed_cost) / @d * target.target_date - target.target_amount) / target.target_date %>円使えます
   </div>
   <div class='links'>
-    <%= link_to "戦闘開始!", edit_target_path(target.id) %>
+    <%= link_to "マモンと戦う", edit_target_path(target.id) %>
     <%= link_to "やり直す", target_path(target.id), method: :delete %>
   </div>
   <% break %>

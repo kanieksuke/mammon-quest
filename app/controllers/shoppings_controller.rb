@@ -10,6 +10,7 @@ class ShoppingsController < ApplicationController
     @current_shopping.resist += shopping.resist
     @current_shopping.save
     shopping.destroy
+    Message.create(text:"攻撃力が下がってしまった...", target_id: @target.id)
     redirect_to edit_target_path(@target.id)
   end
 
