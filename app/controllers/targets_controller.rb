@@ -39,10 +39,10 @@ class TargetsController < ApplicationController
   def update
     require 'date'
     @target = Target.find(params[:id])
-    #if @target.attack_date == Date.today
-      #Message.create(text: "攻撃ができるのは一日一回までです", target_id: @target.id)
-      #redirect_to edit_target_path(@target.id) and return
-    #end
+    if @target.attack_date == Date.today
+      Message.create(text: "攻撃ができるのは一日一回までです", target_id: @target.id)
+      redirect_to edit_target_path(@target.id) and return
+    end
     @budget = @target.budget
     @shopping = @target.shopping
     create_attack
