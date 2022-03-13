@@ -2,7 +2,11 @@
 <%= form_with model: @budget, url:target_budget_path, local: true do |f| %>
   <%= render 'shared/error_messages', model: @budget %>
     <div class="message">
-      今月の収入を入力してください
+      <% if Date.today == Date.new(Time.now.year, Time.now.month, -1).day %>
+        今月の収入を入力してください
+      <% else %>
+        先月の収入を入力してください
+      <% end %>
     </div>
     <div class="form">
       <%= f.number_field :income, placeholder: "250000" %><span>円</span>
@@ -10,7 +14,11 @@
   </div>
   <div class="field">
     <div class="message">
-      今月の固定費を入力してください
+      <% if Date.today == Date.new(Time.now.year, Time.now.month, -1).day %>
+        今月の固定費を入力してください
+      <% else %>
+        先月の固定費を入力してください
+      <% end %>
     </div>
     <div class="form">
       <%= f.number_field :fixed_cost, placeholder: "120000" %><span>円</span>
