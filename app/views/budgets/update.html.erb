@@ -1,33 +1,41 @@
-<h2>これでよろしいですか？</h2>
-<div class='text'>
-  目標金額:<%= @target.target_amount %>円
-</div>
-<div class='text'>
-  現在の資金:<%= @target.target_amount - @target.current_amount%>円
-</div>
-<div class='text'>
-  目標期日まであと<%= @target.target_date - @target.current_date %>日
-</div>
-<div class='text'>
-  <% if Date.today == Date.new(Time.now.year, Time.now.month, -1).day %>
-    今月の収入:<%= @target.budget.income %>円
-  <% else %>
-    先月の収入:<%= @target.budget.income %>円
-  <% end %>
-</div>
-<div class='text'>
-  <% if Date.today == Date.new(Time.now.year, Time.now.month, -1).day %>
-    今月の固定費:<%= @target.budget.fixed_cost %>円
-  <% else %>
-    先月の固定費:<%= @target.budget.fixed_cost %>円
-  <% end %>
-</div>
-<div class='text'>
-  一日あたり<%= (
-    @attack * (
-      @target.target_date - @target.current_date) - @target.current_amount) / (
-        @target.target_date - @target.current_date) %>円使えます
-<div class='links'>
-  <%= link_to "戦闘再開!", edit_target_path(@target.id) %>
-  <%= link_to "やり直す", edit_target_budget_path(@target.budget.id) %>
+<div class='wrapper'>
+  <div class ='side-bar'>
+    <h2>これでよろしいですか？</h2>
+    <div class='text'>
+      目標金額:<%= @target.target_amount %>円
+    </div>
+    <div class='text'>
+      現在の資金:<%= @target.target_amount - @target.current_amount%>円
+    </div>
+    <div class='text'>
+      目標期日まであと<%= @target.target_date - @target.current_date %>日
+    </div>
+    <div class='text'>
+      <% if Date.today == Date.new(Time.now.year, Time.now.month, -1).day %>
+        今月の収入:<%= @target.budget.income %>円
+      <% else %>
+        先月の収入:<%= @target.budget.income %>円
+      <% end %>
+    </div>
+    <div class='text'>
+      <% if Date.today == Date.new(Time.now.year, Time.now.month, -1).day %>
+        今月の固定費:<%= @target.budget.fixed_cost %>円
+      <% else %>
+        先月の固定費:<%= @target.budget.fixed_cost %>円
+      <% end %>
+    </div>
+    <div class='text'>
+      一日あたり<%= (
+        @attack * (
+          @target.target_date - @target.current_date) - @target.current_amount) / (
+            @target.target_date - @target.current_date) %>円使えます
+    </div>
+    <div class='links'>
+      <%= link_to "戦闘再開!", edit_target_path(@target.id) %>
+      <%= link_to "やり直す", edit_target_budget_path(@target.budget.id) %>
+    </div>
+  </div>
+  <div class ='main'>
+  </div>
+  <%= render "shared/message_board", model: @messages %>
 </div>

@@ -2,12 +2,15 @@ class BudgetsController < ApplicationController
   before_action :move_to_new, only: [:edit, :update]
 
   def edit
+    @target = Target.find(params[:id])
     @budget = Budget.find(params[:id])
+    @messages = @target.messages.includes(:target).order("created_at DESC")
   end
 
   def update
     @target = Target.find(params[:id])
     @budget = Budget.update(budget_params)
+    @messages = @target.messages.includes(:target).order("created_at DESC")
     create_attack
   end
 
