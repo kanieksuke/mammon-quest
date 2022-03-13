@@ -5,7 +5,8 @@ class TargetsController < ApplicationController
 
   def edit
     @target = Target.find(params[:id])
-    @shopping = Shopping.find(params[:id])
+    @budget = @target.budget
+    @shopping = @target.shopping
     @messages = @target.messages.includes(:target).order("created_at DESC")
     create_attack
   end
