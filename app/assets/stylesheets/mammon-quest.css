@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.wrapper {
+  padding: 10px 0 0 30px;
+}
+
 .side-bar {
   width: 20vw;
 }
