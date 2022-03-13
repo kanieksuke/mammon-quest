@@ -27,6 +27,7 @@
         <%= f.submit "あきらめる" %>
       <% end %>
     </div>
+    <%= link_to 'ログアウトする', destroy_user_session_path, method: :delete, class: "logout" %>
   </div>
   <div class="main">
     <div class="mammon">
