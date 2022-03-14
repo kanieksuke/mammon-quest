@@ -10,8 +10,16 @@
   width: 20vw;
 }
 
+.text-bottom {
+  margin-bottom: 30px;
+}
+
 .form-submit, .battle-form, .calendar {
   margin-bottom: 20px;
+}
+
+.link {
+  padding-top: 10px;
 }
 
 .main {
