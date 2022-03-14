@@ -1,14 +1,14 @@
 class TargetsController < ApplicationController
   before_action :move_to_new, only: [:edit, :destroy, :index, :update]
-  before_action :move_to_edit, only: [:new, :create]
+  before_action :move_to_index, only: [:new, :create]
   before_action :error_breaker, only: [:edit, :new, :destroy, :update]
 
   def edit
     @target = Target.find(params[:id])
-    @shopping = Shopping.find(params[:id])
+    @budget = @target.budget
+    @shopping = @target.shopping
     @messages = @target.messages.includes(:target).order("created_at DESC")
     create_attack
-    Message.create(text: Date.today, target_id: @target.id)
   end
 
   def new
@@ -32,7 +32,7 @@ class TargetsController < ApplicationController
   end
 
   def index
-    @targets = Target.includes(:user).order("created_at DESC")
+    @targets = Target.includes(:user).order("targets.created_at DESC")
     create_d
   end
 
@@ -78,6 +78,7 @@ class TargetsController < ApplicationController
     else
       Message.create(text: "マモンにダメージを与えられませんでした...", target_id: @target.id)
     end
+    Message.create(text: Date.today, target_id: @target.id)
     @target.shopping.resist = 0
     @target.attack_date = Date.today
     @target.save
@@ -108,9 +109,9 @@ class TargetsController < ApplicationController
     @target_budget.resist = 0
   end
 
-  def move_to_edit
+  def move_to_index
     unless current_user.target == nil
-      redirect_to edit_target_path(current_user.target)
+      redirect_to root_path(current_user.target)
     end
   end
 

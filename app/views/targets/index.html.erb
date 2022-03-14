@@ -1,23 +1,39 @@
-<h2>確認画面</h2>
-<% @targets.each do |target| %>
-  <div class='text'>
-    目標金額:<%= target.target_amount %>円
+<div class="wrapper">
+  <div class="side-bar">
+    <h2>確認画面</h2>
+    <% @targets.each do |target| %>
+      <div class='text'>
+        目標金額:<%= target.target_amount %>円
+      </div>
+      <div class='text'>
+        <% if target.current_date > 0 %>
+          現在の資金:<%= target.target_amount - target.current_amount %>円
+        <% end %>
+      </div>
+      <div class='text'>
+        <% if target.current_date > 0 %>
+          目標期日まであと<%= target.target_date - target.current_date %>日
+        <% else %>
+          目標期日:<%= target.target_date %>日
+        <% end %>
+      </div>
+      <div class='text'>
+        先月の収入:<%= target.budget.income %>円
+      </div>
+      <div class='text'>
+        先月の固定費:<%= target.budget.fixed_cost %>円
+      </div>
+      <div class='text-bottom'>
+        一日あたり<%= ((target.budget.income - target.budget.fixed_cost) / @d * (target.target_date - target.current_date) - target.current_amount) / (target.target_date - target.current_date) %>円使えます
+      </div>
+      <div class='link'>
+        <%= link_to "マモンと戦う", edit_target_path(target.id) %>
+      <div>
+      <div class='link'>
+        <%= link_to "やり直す", target_path(target.id), method: :delete %>
+      </div>
+      <h5>※※注意※※ブラウザの戻るボタンで戻って修正しても反映されません</h5>
+      <% break %>
+    <% end %>
   </div>
-  <div class='text'>
-    目標期日:<%= target.target_date %>日
-  </div>
-  <div class='text'>
-    先月の収入:<%= target.budget.income %>円
-  </div>
-  <div class='text'>
-    先月の固定費:<%= target.budget.fixed_cost %>円
-  </div>
-  <div class='text'>
-    一日あたり<%= ((target.budget.income - target.budget.fixed_cost) / @d * target.target_date - target.target_amount) / target.target_date %>円使えます
-  </div>
-  <div class='links'>
-    <%= link_to "マモンと戦う", edit_target_path(target.id) %>
-    <%= link_to "やり直す", target_path(target.id), method: :delete %>
-  </div>
-  <% break %>
-<% end %>
+</div>

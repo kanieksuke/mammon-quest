@@ -23,10 +23,16 @@
       <%= @attack %>
     </div>
     <div class="battle-form">
+      <%= form_with model: @budget, url: edit_target_budget_path(@target.id), method: :get, local: true do |f| %>
+        <%= f.submit "収支情報を修正する" %>
+      <% end %>
+    </div>
+    <div class="battle-form">
       <%= form_with model: @target, url: target_path, method: :delete, local: true do |f| %>
         <%= f.submit "あきらめる" %>
       <% end %>
     </div>
+    <%= link_to 'ログアウトする', destroy_user_session_path, method: :delete, class: "logout" %>
   </div>
   <div class="main">
     <div class="mammon">
