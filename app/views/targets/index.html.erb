@@ -29,10 +29,12 @@
       <div class='link'>
         <%= link_to "マモンと戦う", edit_target_path(target.id) %>
       <div>
-      <div class='link'>
-        <%= link_to "やり直す", target_path(target.id), method: :delete %>
-      </div>
-      <h5>※※注意※※ブラウザの戻るボタンで戻って修正しても反映されません</h5>
+      <% if target.current_date == 0 %>
+        <div class='link'>
+          <%= link_to "やり直す", target_path(target.id), method: :delete %>
+        </div>
+        <h5>※※注意※※ブラウザの戻るボタンで戻って修正しても反映されません</h5>
+      <% end %>
       <% break %>
     <% end %>
   </div>

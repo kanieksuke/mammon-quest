@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="side-bar">
     <h2>初期設定</h2>
-    <%= form_with model: @target_budget, url:targets_path, local: true do |f| %>
+    <%= form_with model: @target_budget, url:targets_path, id:'target-form', local: true do |f| %>
       <%= render 'shared/error_messages', model: @target_budget %>
       <div class="field">
         <div class="message">
@@ -16,7 +16,7 @@
           いつまでに貯めますか?
         </div>
         <div class="form">
-          <%= f.number_field :target_date, placeholder: "100", min: 1 %><span>日</span>
+          <%= f.date_field :target_hoge, id:"get-date" %><span></span>
         </div>
       </div>
       <div class="field">
@@ -31,11 +31,11 @@
         <div class="message">
           先月の固定費を入力してください
         </div>
-        <div class="form">
+        <div class="form-bottom">
           <%= f.number_field :fixed_cost, placeholder: "120000" %><span>円</span>
         </div>
       </div>
-      <div class="actions">
+      <div class="form-submit">
         <%= f.submit "確認画面へ" %>
       </div>
     <% end %>
