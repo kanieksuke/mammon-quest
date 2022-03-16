@@ -22,12 +22,19 @@
   padding-top: 10px;
 }
 
+.space {
+  border: 1px solid white;
+  height: 40vh;
+  width: 99%;
+}
+
 .main {
   width: 40vw;
 }
 
 .message-board {
-  height: 100vh;
+  border: 1px solid white;
+  height: 95vh;
   width: 40vw;
   overflow: scroll;
 }
