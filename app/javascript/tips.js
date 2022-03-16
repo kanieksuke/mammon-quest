@@ -43,6 +43,21 @@ function tips () {
     var editBudgetTips = ""
     deleteEditBudgetTips.innerHTML = `${editBudgetTips}`
   })
+
+  const getDestroyTarget = document.getElementById("destroy-target-button");
+  getDestroyTarget.addEventListener("mouseover", () => {
+    getDestroyTarget.setAttribute("style", "background-color:gray")
+    const getDestroyTargetTips = document.getElementById("tips")
+    var destroyTargetTips = "マモンとの戦いを諦めて目標設定し直します。<br><br>エグ過ぎる貯蓄計画を組んじゃった時はやり直すのも一つの手だよ！<br><br>節約は無理せず楽しく！"
+    getDestroyTargetTips.innerHTML = `${destroyTargetTips}`
+  })
+
+  getDestroyTarget.addEventListener("mouseout", () => {
+    getDestroyTarget.setAttribute("style", "background-color:black")
+    const deleteDestroyTargetTips = document.getElementById("tips")
+    var destroyTargetTips = ""
+    deleteDestroyTargetTips.innerHTML = `${destroyTargetTips}`
+  })
 }
 
 window.addEventListener("load", tips);

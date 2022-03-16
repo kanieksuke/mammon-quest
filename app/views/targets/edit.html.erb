@@ -29,7 +29,7 @@
     </div>
     <div class="battle-form">
       <%= form_with model: @target, url: target_path, method: :delete, local: true do |f| %>
-        <%= f.submit "あきらめる" %>
+        <%= f.submit "あきらめる", id: "destroy-target-button" %>
       <% end %>
     </div>
     <div class="space", id="tips">
@@ -37,20 +37,22 @@
     <%= link_to 'ログアウトする', destroy_user_session_path, method: :delete, class: "logout" %>
   </div>
   <div class="main">
-    <div class="mammon">
-      <%= image_tag 'pose-akuma2.jpeg' %>
-    </div>
-    <div class="text">
-      HP:
-      <span id="current_hp"><%= @target.current_amount %></span>
-      /
-      <span id="max_hp"><%= @target.target_amount %></span>
-    </div>
-    <div class="text">
-      MP:
-      <span><%= @target.current_date %></span>
-      /
-      <span><%= @target.target_date %></span>
+    <div class="mammon-data">
+      <div class="mammon">
+        <%= image_tag 'pose-akuma2.jpeg' %>
+      </div>
+      <div class="text">
+        HP:
+        <span id="current_hp"><%= @target.current_amount %></span>
+        /
+        <span id="max_hp"><%= @target.target_amount %></span>
+      </div>
+      <div class="text">
+        MP:
+        <span><%= @target.current_date %></span>
+        /
+        <span><%= @target.target_date %></span>
+      </div>
     </div>
   </div>
   <%= render "shared/message_board", model: @messages %>
