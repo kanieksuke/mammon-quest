@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="side-bar">
     <h2>初期設定</h2>
-    <%= form_with model: @target_budget, url:targets_path, local: true do |f| %>
+    <%= form_with model: @target_budget, url:targets_path, id:'target-form', local: true do |f| %>
       <%= render 'shared/error_messages', model: @target_budget %>
       <div class="field">
         <div class="message">
@@ -16,7 +16,7 @@
           いつまでに貯めますか?
         </div>
         <div class="form">
-          <%= f.date_field :target_date, id:"get-date" %><span>日</span>
+          <%= f.date_field :target_hoge, id:"get-date" %><span></span>
         </div>
       </div>
       <div class="field">

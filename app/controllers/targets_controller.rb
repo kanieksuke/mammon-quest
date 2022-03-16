@@ -33,6 +33,7 @@ class TargetsController < ApplicationController
 
   def index
     @targets = Target.includes(:user).order("targets.created_at DESC")
+    create_d
   end
 
   def update
@@ -123,6 +124,10 @@ class TargetsController < ApplicationController
   def create_attack
     d = Date.new(Time.now.year, Time.now.month, -1).day
     @attack = (@target.budget.income - @target.budget.fixed_cost) / d - @target.shopping.resist
+  end
+
+  def create_d
+    @d = Date.new(Time.now.year, Time.now.month, -1).day
   end
 
   def error_breaker
