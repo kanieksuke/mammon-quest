@@ -24,7 +24,7 @@
     </div>
     <div class="battle-form">
       <%= form_with model: @budget, url: edit_target_budget_path(@target.id), method: :get, local: true do |f| %>
-        <%= f.submit "収支情報を修正する" %>
+        <%= f.submit "収支情報を修正する", id: "edit-budget-button" %>
       <% end %>
     </div>
     <div class="battle-form">
