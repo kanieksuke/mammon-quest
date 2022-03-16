@@ -25,7 +25,8 @@
 .space {
   border: 1px solid white;
   height: 40vh;
-  width: 99%;
+  width: 95%;
+  padding: 4px;
 }
 
 .main {
@@ -35,7 +36,8 @@
 .message-board {
   border: 1px solid white;
   height: 95vh;
-  width: 40vw;
+  width: 35vw;
+  padding: 4px;
   overflow: scroll;
 }
 
