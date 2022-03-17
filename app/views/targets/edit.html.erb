@@ -37,19 +37,19 @@
   <div class="main">
     <div class="mammon-data">
       <div class="mammon">
-        <%= image_tag 'pose-akuma2.jpeg' %>
+        <%= image_tag 'pose-akuma2.jpeg', id:"mammon-image" %>
       </div>
       <div class="text">
         HP:
-        <span id="current_hp"><%= @target.current_amount %></span>
+        <span id="mammon-hp"><%= @target.current_amount %></span>
         /
-        <span id="max_hp"><%= @target.target_amount %></span>
+        <span id="mammon-hp"><%= @target.target_amount %></span>
       </div>
       <div class="text">
         MP:
-        <span><%= @target.current_date %></span>
+        <span id="mammon-mp"><%= @target.current_date %></span>
         /
-        <span><%= @target.target_date %></span>
+        <span id="mammon-mp"><%= @target.target_date %></span>
       </div>
     </div>
   </div>

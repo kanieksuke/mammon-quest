@@ -58,6 +58,45 @@ function battleTips () {
     var destroyTargetTips = ""
     deleteDestroyTargetTips.innerHTML = `${destroyTargetTips}`
   })
+
+  const getMammonImage = document.getElementById("mammon-image")
+  getMammonImage.addEventListener("mouseover", () => {
+    const getMammonTips = document.getElementById("tips")
+    var mammonTips = "あなたの欲望が具現化した悪魔です。<br><br>ひたすら寝まくって魔力を溜めています。どんなに殴る蹴るされても起きません。<br><br>なので魔力が溜まり切るまでは人畜無害です。"
+    getMammonTips.innerHTML = `${mammonTips}`
+  })
+
+  getMammonImage.addEventListener("mouseout", () => {
+    const deleteMammonTips = document.getElementById("tips")
+    var mammonTips = ""
+    deleteMammonTips.innerHTML = `${mammonTips}`
+  })
+
+  const getMammonHp = document.getElementById("mammon-hp")
+  getMammonHp.addEventListener("mouseover", () => {
+    const getHpTips = document.getElementById("tips")
+    var hpTips = "マモンのHPです。<br>MPが溜まる前に削り切りましょう。"
+    getHpTips.innerHTML = `${hpTips}`
+  })
+
+  getMammonHp.addEventListener("mouseout", () => {
+    const deleteHpTips = document.getElementById("tips")
+    var hpTips = ""
+    deleteHpTips.innerHTML = `${hpTips}`
+  })
+
+  const getMammonMp = document.getElementById("mammon-mp")
+  getMammonMp.addEventListener("mouseover", () => {
+    const getMpTips = document.getElementById("tips")
+    var mpTips = "マモンのMPです。<br>攻撃を受ける度1ずつ溜まっていきます。<br>満タンになると悲惨な目に遭ってしまいます..."
+    getMpTips.innerHTML = `${mpTips}`
+  })
+
+  getMammonMp.addEventListener("mouseout", () => {
+    const deleteMpTips = document.getElementById("tips")
+    var mpTips = ""
+    deleteMpTips.innerHTML = `${mpTips}`
+  })
 }
 
 function logoutTips () {
@@ -70,7 +109,7 @@ function logoutTips () {
   })
 
   getLogout.addEventListener("mouseout", () => {
-    getLogout.setAttribute("style", "backgroundcolor:black")
+    getLogout.setAttribute("style", "background-color:black")
     const deleteLogoutTips = document.getElementById("tips")
     var logoutTips = ""
     deleteLogoutTips.innerHTML = `${logoutTips}`

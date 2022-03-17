@@ -67,8 +67,8 @@ class TargetsController < ApplicationController
     end
     unless @target.current_amount <= 0
       if @target.current_date == 1
-        Message.create(text: "マモンに魔力が集まり出した!!", target_id: @target.id)
-        Message.create(text: "マモンは集中を始めた", target_id: @target.id)
+        Message.create(text: "なんとマモンに魔力が集まり出した!!", target_id: @target.id)
+        Message.create(text: "マモンは寝ている...", target_id: @target.id)
       else
         Message.create(text: "マモンは魔力を溜めている...!!", target_id: @target.id)
       end
