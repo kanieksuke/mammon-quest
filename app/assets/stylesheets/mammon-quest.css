@@ -10,15 +10,15 @@
   width: 20vw;
 }
 
-.text-semi-bottom {
-  margin-bottom: 20px;
+.budgets-edit-submit {
+  margin-bottom: 100px;
 }
 
 .text-bottom {
   margin-bottom: 30px;
 }
 
-.form-submit, .battle-form, .calendar, .form-bottom {
+.form-submit, .battle-form, .calendar, .form-bottom, .text-semi-bottom {
   margin-bottom: 20px;
 }
 

@@ -1,12 +1,3 @@
-function editTips () {
-  const getWarning = document.getElementById("update-wrapper");
-  getWarning.addEventListener("mouseover", () => {
-    const getWarningTips = document.getElementById("tips")
-    const warningTips = "※※注意※※<br>すでに与えたダメージには反映されません"
-    getWarningTips.innerHTML = `${warningTips}`
-  })
-}
-
 function battleTips () {
   const getAttack = document.getElementById("attack-button");
   getAttack.addEventListener("mouseover", () => {
@@ -42,7 +33,7 @@ function battleTips () {
   getEditBudget.addEventListener("mouseover", () => {
     getEditBudget.setAttribute("style", "background-color:gray")
     const getEditBudgetTips = document.getElementById("tips")
-    var editBudgetTips = "初期設定や収支報告で間違えて入力してしまったらここで修正してください。<br><br>※※注意※※<br>すでに与えたダメージには反映されません<br><br>なるたけマモンに攻撃する前に修正してね！"
+    var editBudgetTips = "初期設定や収支報告で間違えて入力してしまったらここで修正してください。<br><br>※※注意※※<br>すでに与えたダメージには反映されません<br>なるたけマモンに攻撃する前に修正してね！"
     getEditBudgetTips.innerHTML = `${editBudgetTips}`
   })
 
@@ -67,7 +58,9 @@ function battleTips () {
     var destroyTargetTips = ""
     deleteDestroyTargetTips.innerHTML = `${destroyTargetTips}`
   })
+}
 
+function logoutTips () {
   const getLogout = document.getElementById("logout");
   getLogout.addEventListener("mouseover", () => {
     getLogout.setAttribute("style", "background-color:gray")
@@ -84,5 +77,5 @@ function battleTips () {
   })
 }
 
-window.addEventListener("load", editTips);
+window.addEventListener("load", logoutTips);
 window.addEventListener("load", battleTips);
