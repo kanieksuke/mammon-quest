@@ -32,9 +32,8 @@
         <%= f.submit "あきらめる", id: "destroy-target-button" %>
       <% end %>
     </div>
-    <div class="space", id="tips">
-    </div>
-    <%= link_to 'ログアウトする', destroy_user_session_path, method: :delete, class: "logout" %>
+    <%= render "shared/tips" %>
+    <%= link_to 'ログアウトする', destroy_user_session_path, method: :delete, class: "logout", id: "logout" %>
   </div>
   <div class="main">
     <div class="mammon-data">

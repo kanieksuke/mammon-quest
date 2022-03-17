@@ -1,4 +1,4 @@
-<div class='wrapper'>
+<div class='wrapper' id="update-wrapper">
   <div class ='side-bar'>
     <h2>これでよろしいですか？</h2>
     <div class='text'>
@@ -17,7 +17,7 @@
         先月の収入:<%= @target.budget.income %>円
       <% end %>
     </div>
-    <div class='text'>
+    <div class='text-semi-bottom'>
       <% if Date.today == Date.new(Time.now.year, Time.now.month, -1).day %>
         今月の固定費:<%= @target.budget.fixed_cost %>円
       <% else %>
@@ -33,7 +33,7 @@
     <div class='link'>
       <%= link_to "やり直す", edit_target_budget_path(@target.budget.id) %>
     </div>
-    <h5>※※注意※※すでに与えたダメージには反映されません</h5>
+    <%= render "shared/tips" %>
   </div>
   <div class ='main'>
   </div>

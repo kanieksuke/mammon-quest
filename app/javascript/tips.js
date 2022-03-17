@@ -1,9 +1,18 @@
-function tips () {
+function editTips () {
+  const getWarning = document.getElementById("update-wrapper");
+  getWarning.addEventListener("mouseover", () => {
+    const getWarningTips = document.getElementById("tips")
+    const warningTips = "※※注意※※<br>すでに与えたダメージには反映されません"
+    getWarningTips.innerHTML = `${warningTips}`
+  })
+}
+
+function battleTips () {
   const getAttack = document.getElementById("attack-button");
   getAttack.addEventListener("mouseover", () => {
     getAttack.setAttribute("style", "background-color:gray")
     const getAttackTips = document.getElementById("tips")
-    var attackTips = "マモンに攻撃をします。<br><br>一日に一回しか攻撃できないから注意してね！<br><br>買い物をし過ぎると逆にマモンのHPが増えちゃうよ！"
+    var attackTips = "マモンに攻撃をします。<br><br>一日に一回しか攻撃できません。<br>忘れずに毎日欠かさず攻撃しよう！<br><br>買い物をし過ぎると逆にマモンのHPが増えちゃうよ！"
     getAttackTips.innerHTML = `${attackTips}`
   })
 
@@ -33,7 +42,7 @@ function tips () {
   getEditBudget.addEventListener("mouseover", () => {
     getEditBudget.setAttribute("style", "background-color:gray")
     const getEditBudgetTips = document.getElementById("tips")
-    var editBudgetTips = "初期設定や収支報告で間違えて入力してしまったらここで修正してください。<br><br>※※注意※※すでに与えたダメージには反映されません<br><br>なるたけマモンに攻撃する前に修正してね！"
+    var editBudgetTips = "初期設定や収支報告で間違えて入力してしまったらここで修正してください。<br><br>※※注意※※<br>すでに与えたダメージには反映されません<br><br>なるたけマモンに攻撃する前に修正してね！"
     getEditBudgetTips.innerHTML = `${editBudgetTips}`
   })
 
@@ -58,6 +67,22 @@ function tips () {
     var destroyTargetTips = ""
     deleteDestroyTargetTips.innerHTML = `${destroyTargetTips}`
   })
+
+  const getLogout = document.getElementById("logout");
+  getLogout.addEventListener("mouseover", () => {
+    getLogout.setAttribute("style", "background-color:gray")
+    const getLogoutTips = document.getElementById("tips")
+    var logoutTips = "また遊びに来てね！"
+    getLogoutTips.innerHTML = `${logoutTips}`
+  })
+
+  getLogout.addEventListener("mouseout", () => {
+    getLogout.setAttribute("style", "backgroundcolor:black")
+    const deleteLogoutTips = document.getElementById("tips")
+    var logoutTips = ""
+    deleteLogoutTips.innerHTML = `${logoutTips}`
+  })
 }
 
-window.addEventListener("load", tips);
+window.addEventListener("load", editTips);
+window.addEventListener("load", battleTips);
