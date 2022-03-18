@@ -35,7 +35,13 @@ function budgetTips () {
   getIncome.addEventListener("mouseover", () => {
     getIncome.setAttribute("style", "background-color:gray")
     const getIncomeTips = document.getElementById("tips")
-    var incomeTips = "<例><br>先月の給料<br>先月の業務委託料<br>先月の売買差益<br><br>↑こういったのの合計をざっくり入力してください。"
+    const today = new Date();
+    const monthEnd = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+    if (today == monthEnd) {
+      var incomeTips = "<例><br>今月の給料<br>今月の業務委託料<br>今月の売買差益<br><br>↑こういったのの合計をざっくり入力してください。"
+    } else {
+      var incomeTips = "<例><br>先月の給料<br>先月の業務委託料<br>先月の売買差益<br><br>↑こういったのの合計をざっくり入力してください。"
+    }
     getIncomeTips.innerHTML = `${incomeTips}`
   })
 
@@ -50,7 +56,13 @@ function budgetTips () {
   getFixedCost.addEventListener("mouseover", () => {
     getFixedCost.setAttribute("style", "background-color:gray")
     const getFixedCostTips = document.getElementById("tips")
-    var fixedCostTips = "<例><br>先月の家賃<br>先月のスマホ代<br>先月の水道光熱費<br><br>↑こういったのの合計をざっくり入力してください。"
+    const today = new Date();
+    const monthEnd = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+    if (today == monthEnd) {
+      var fixedCostTips = "<例><br>今月払った家賃<br>今月かかったスマホ代<br>今月かかった水道光熱費<br><br>↑こういったのの合計をざっくり入力してください。"
+    } else {
+      var fixedCostTips = "<例><br>先月払った家賃<br>先月かかったスマホ代<br>先月かかった水道光熱費<br><br>↑こういったのの合計をざっくり入力してください。"
+    }
     getFixedCostTips.innerHTML = `${fixedCostTips}`
   })
 
@@ -59,6 +71,21 @@ function budgetTips () {
     const deleteFixedCostTips = document.getElementById("tips")
     var fixedCostTips = ""
     deleteFixedCostTips.innerHTML = `${fixedCostTips}`
+  })
+
+  const getSubmitConfirmation = document.getElementById("submit-confirmation");
+  getSubmitConfirmation.addEventListener("mouseover", () => {
+    getSubmitConfirmation.setAttribute("style", "background-color:gray")
+    const getSubmitConfirmationTips = document.getElementById("tips")
+    var submitConfirmationTips = "全部入力したら確認画面へGo!"
+    getSubmitConfirmationTips.innerHTML = `${submitConfirmationTips}`
+  })
+
+  getSubmitConfirmation.addEventListener("mouseout", () => {
+    getSubmitConfirmation.setAttribute("style", "background-color:black")
+    const deleteSubmitConfirmationTips = document.getElementById("tips")
+    var submitConfirmationTips = ""
+    deleteSubmitConfirmationTips.innerHTML = `${submitConfirmationTips}`
   })
 }
 
