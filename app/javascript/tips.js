@@ -23,10 +23,42 @@ function targetTips () {
   })
 
   getTargetDate.addEventListener("mouseout", () => {
-    getTargetDate.setAttribute("style", "backgroundcolor:black")
+    getTargetDate.setAttribute("style", "background-color:black")
     const deleteTargetDateTips = document.getElementById("tips")
     var targetDateTips = ""
     deleteTargetDateTips.innerHTML = `${targetDateTips}`
+  })
+}
+
+function budgetTips () {
+  const getIncome = document.getElementById("income");
+  getIncome.addEventListener("mouseover", () => {
+    getIncome.setAttribute("style", "background-color:gray")
+    const getIncomeTips = document.getElementById("tips")
+    var incomeTips = "<例><br>先月の給料<br>先月の業務委託料<br>先月の売買差益<br><br>↑こういったのの合計をざっくり入力してください。"
+    getIncomeTips.innerHTML = `${incomeTips}`
+  })
+
+  getIncome.addEventListener("mouseout", () => {
+    getIncome.setAttribute("style", "background-color:black")
+    const deleteIncomeTips = document.getElementById("tips")
+    var incomeTips = ""
+    deleteIncomeTips.innerHTML = `${incomeTips}`
+  })
+
+  const getFixedCost = document.getElementById("fixed-cost");
+  getFixedCost.addEventListener("mouseover", () => {
+    getFixedCost.setAttribute("style", "background-color:gray")
+    const getFixedCostTips = document.getElementById("tips")
+    var fixedCostTips = "<例><br>先月の家賃<br>先月のスマホ代<br>先月の水道光熱費<br><br>↑こういったのの合計をざっくり入力してください。"
+    getFixedCostTips.innerHTML = `${fixedCostTips}`
+  })
+
+  getFixedCost.addEventListener("mouseout", () => {
+    getFixedCost.setAttribute("style", "background-color:black")
+    const deleteFixedCostTips = document.getElementById("tips")
+    var fixedCostTips = ""
+    deleteFixedCostTips.innerHTML = `${fixedCostTips}`
   })
 }
 
@@ -149,5 +181,6 @@ function logoutTips () {
 }
 
 window.addEventListener("load", targetTips);
+window.addEventListener("load", budgetTips);
 window.addEventListener("load", battleTips);
 window.addEventListener("load", logoutTips);

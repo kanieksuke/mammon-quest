@@ -64,6 +64,10 @@
   margin: 0 0 0 90px;
 }
 
+.field_with_errors {
+  display: contents;
+}
+
 * {
   color: white;
   background-color: black;
