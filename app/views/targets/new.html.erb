@@ -39,6 +39,6 @@
         <%= f.submit "確認画面へ" %>
       </div>
     <% end %>
-    <%= link_to 'ログアウトする', destroy_user_session_path, method: :delete, class: "logout" %>
+    <%= render "shared/tips" %>
   </div>
 </div>
