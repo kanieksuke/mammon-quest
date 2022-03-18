@@ -1,3 +1,35 @@
+function targetTips () {
+  const getTargetAmount = document.getElementById("target-amount");
+  getTargetAmount.addEventListener("mouseover", () => {
+    getTargetAmount.setAttribute("style", "background-color:gray");
+    const getTargetAmountTips = document.getElementById("tips")
+    var targetAmountTips = "目標金額を設定してください。<br><br>目標が壮大な時は、小分けにしてとりあえずの目標を設定するのがコツだよ！"
+    getTargetAmountTips.innerHTML = `${targetAmountTips}`
+  })
+
+  getTargetAmount.addEventListener("mouseout", () => {
+    getTargetAmount.setAttribute("style", "background-color:black")
+    const deleteTargetAmountTips = document.getElementById("tips")
+    var targetAmountTips = ""
+    deleteTargetAmountTips.innerHTML = `${targetAmountTips}`
+  })
+
+  const getTargetDate = document.getElementById("get-date");
+  getTargetDate.addEventListener("mouseover", () => {
+    getTargetDate.setAttribute("style", "background-color:gray")
+    const getTargetDateTips = document.getElementById("tips")
+    var targetDateTips = "目標金額をいつまでに貯めるか設定してください。<br><br>フォームの右端をクリックするとカレンダーが出てくるよ！"
+    getTargetDateTips.innerHTML = `${targetDateTips}`
+  })
+
+  getTargetDate.addEventListener("mouseout", () => {
+    getTargetDate.setAttribute("style", "backgroundcolor:black")
+    const deleteTargetDateTips = document.getElementById("tips")
+    var targetDateTips = ""
+    deleteTargetDateTips.innerHTML = `${targetDateTips}`
+  })
+}
+
 function battleTips () {
   const getAttack = document.getElementById("attack-button");
   getAttack.addEventListener("mouseover", () => {
@@ -116,5 +148,6 @@ function logoutTips () {
   })
 }
 
-window.addEventListener("load", logoutTips);
+window.addEventListener("load", targetTips);
 window.addEventListener("load", battleTips);
+window.addEventListener("load", logoutTips);
