@@ -94,7 +94,7 @@ function battleTips () {
   getAttack.addEventListener("mouseover", () => {
     getAttack.setAttribute("style", "background-color:gray")
     const getAttackTips = document.getElementById("tips")
-    var attackTips = "マモンに攻撃をします。<br><br>一日に一回しか攻撃できません。<br>忘れずに毎日欠かさず攻撃しよう！<br><br>買い物をし過ぎると逆にマモンのHPが増えちゃうよ！"
+    var attackTips = "マモンに攻撃をします。<br><br>一日に一回しか攻撃できません。<br>毎日欠かさず攻撃しよう！<br><br>買い物をし過ぎると逆にマモンのHPが増えちゃうよ！"
     getAttackTips.innerHTML = `${attackTips}`
   })
 
@@ -118,6 +118,19 @@ function battleTips () {
     const deleteShoppingTips = document.getElementById("tips")
     var shoppingTips = ""
     deleteShoppingTips.innerHTML = `${shoppingTips}`
+  })
+
+  const getAssumptionDamage = document.getElementById("assumption-damage");
+  getAssumptionDamage.addEventListener("mouseover", () => {
+    const getAssumptionDamageTips = document.getElementById("tips")
+    var assumptionDamageTips = "マモンに攻撃をした時に与えることのできる現在のダメージ量です。<br><br>この数値を超える金額の買い物をしてしまうと、攻撃をした時にマモンのHPが増えてしまいます。"
+    getAssumptionDamageTips.innerHTML = `${assumptionDamageTips}`
+  })
+
+  getAssumptionDamage.addEventListener("mouseout", () => {
+    const deleteAssumptionDamageTips = document.getElementById("tips")
+    var assumptionDamageTips = ""
+    deleteAssumptionDamageTips.innerHTML = `${assumptionDamageTips}`
   })
 
   const getEditBudget = document.getElementById("edit-budget-button");
@@ -190,6 +203,40 @@ function battleTips () {
   })
 }
 
+function goToBattleTips () {
+  const getGoToBattle = document.getElementById("go-to-battle");
+  getGoToBattle.addEventListener("mouseover", () => {
+    getGoToBattle.setAttribute("style", "background-color:gray")
+    const getGoToBattleTips = document.getElementById("tips")
+    var goToBattleTips = "マモンに戦いを挑みます。"
+    getGoToBattleTips.innerHTML = `${goToBattleTips}`
+  })
+
+  getGoToBattle.addEventListener("mouseout", () => {
+    getGoToBattle.setAttribute("style", "background-color:black")
+    const deleteGoToBattleTips = document.getElementById("tips")
+    var goToBattleTips = ""
+    deleteGoToBattleTips.innerHTML = `${goToBattleTips}`
+  })
+}
+
+function returnTips () {
+  const getReturn = document.getElementById("return");
+  getReturn.addEventListener("mouseover", () => {
+    getReturn.setAttribute("style", "background-color:gray")
+    const getReturnTips = document.getElementById("tips")
+    var returnTips = "設定し直したい場合は、こちらのリンクから戻ってください。"
+    getReturnTips.innerHTML = `${returnTips}`
+  })
+
+  getReturn.addEventListener("mouseout", () => {
+    getReturn.setAttribute("style", "background-color:black")
+    const deleteReturnTips = document.getElementById("tips")
+    var returnTips = ""
+    deleteReturnTips.innerHTML =`${returnTips}`
+  })
+}
+
 function logoutTips () {
   const getLogout = document.getElementById("logout");
   getLogout.addEventListener("mouseover", () => {
@@ -210,4 +257,6 @@ function logoutTips () {
 window.addEventListener("load", targetTips);
 window.addEventListener("load", budgetTips);
 window.addEventListener("load", battleTips);
+window.addEventListener("load", goToBattleTips);
+window.addEventListener("load", returnTips);
 window.addEventListener("load", logoutTips);

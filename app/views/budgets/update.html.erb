@@ -28,10 +28,10 @@
       一日あたり<%= (@attack * (@target.target_date - @target.current_date) - @target.current_amount) / (@target.target_date - @target.current_date) %>円使えます
     </div>
     <div class='another-link'>
-      <%= link_to "戦闘再開!", edit_target_path(@target.id) %>
+      <%= link_to "戦闘再開!", edit_target_path(@target.id), id: "go-to-battle" %>
     </div>
     <div class='link'>
-      <%= link_to "やり直す", edit_target_budget_path(@target.budget.id) %>
+      <%= link_to "やり直す", edit_target_budget_path(@target.budget.id), id: "return" %>
     </div>
     <%= render "shared/tips" %>
   </div>
