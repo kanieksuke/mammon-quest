@@ -10,11 +10,15 @@
   width: 20vw;
 }
 
+.budgets-edit-submit {
+  margin-bottom: 100px;
+}
+
 .text-bottom {
   margin-bottom: 30px;
 }
 
-.form-submit, .battle-form, .calendar, .form-bottom {
+.form-submit, .battle-form, .calendar, .form-bottom, .text-semi-bottom {
   margin-bottom: 20px;
 }
 
@@ -22,13 +26,29 @@
   padding-top: 10px;
 }
 
+.space {
+  border: 1px solid white;
+  height: 40vh;
+  width: 95%;
+  padding: 4px;
+  margin-top: 30px;
+}
+
 .main {
   width: 40vw;
 }
 
+.mammon-data {
+  width: 95%;
+  padding-left: 70px;
+}
+
+
 .message-board {
-  height: 100vh;
-  width: 40vw;
+  border: 1px solid white;
+  height: 95vh;
+  width: 35vw;
+  padding: 4px;
   overflow: scroll;
 }
 
@@ -42,6 +62,10 @@
 
 .chear-image {
   margin: 0 0 0 90px;
+}
+
+.field_with_errors {
+  display: contents;
 }
 
 * {

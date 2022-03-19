@@ -14,41 +14,43 @@
           <%= f.number_field :resist, min: 1 %><span>円</span>
         </div>
         <div class="actions">
-          <%= f.submit "買物をする" %>
+          <%= f.submit "買物をする", id: "shopping-button" %>
         </div>
       <% end %>
     </div>
-    <div class="damage">
+    <div class="damage", id="assumption-damage">
       <span>想定ダメージ:</span>
       <%= @attack %>
     </div>
     <div class="battle-form">
       <%= form_with model: @budget, url: edit_target_budget_path(@target.id), method: :get, local: true do |f| %>
-        <%= f.submit "収支情報を修正する" %>
+        <%= f.submit "収支情報を修正する", id: "edit-budget-button" %>
       <% end %>
     </div>
     <div class="battle-form">
       <%= form_with model: @target, url: target_path, method: :delete, local: true do |f| %>
-        <%= f.submit "あきらめる" %>
+        <%= f.submit "あきらめる", id: "destroy-target-button" %>
       <% end %>
     </div>
-    <%= link_to 'ログアウトする', destroy_user_session_path, method: :delete, class: "logout" %>
+    <%= render "shared/tips" %>
   </div>
   <div class="main">
-    <div class="mammon">
-      <%= image_tag 'pose-akuma2.jpeg' %>
-    </div>
-    <div class="text">
-      HP:
-      <span id="current_hp"><%= @target.current_amount %></span>
-      /
-      <span id="max_hp"><%= @target.target_amount %></span>
-    </div>
-    <div class="text">
-      MP:
-      <span><%= @target.current_date %></span>
-      /
-      <span><%= @target.target_date %></span>
+    <div class="mammon-data">
+      <div class="mammon">
+        <%= image_tag 'pose-akuma2.jpeg', id:"mammon-image" %>
+      </div>
+      <div class="text">
+        HP:
+        <span id="mammon-hp"><%= @target.current_amount %></span>
+        /
+        <span id="mammon-hp"><%= @target.target_amount %></span>
+      </div>
+      <div class="text">
+        MP:
+        <span id="mammon-mp"><%= @target.current_date %></span>
+        /
+        <span id="mammon-mp"><%= @target.target_date %></span>
+      </div>
     </div>
   </div>
   <%= render "shared/message_board", model: @messages %>

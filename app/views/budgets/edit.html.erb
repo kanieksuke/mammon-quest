@@ -11,7 +11,7 @@
         <% end %>
       </div>
       <div>
-        <%= f.number_field :income, placeholder: "250000" %><span>円</span>
+        <%= f.number_field :income, id: "income" %><span>円</span>
       </div>
       <div class="message">
         <% if Date.today == Date.new(Time.now.year, Time.now.month, -1).day %>
@@ -21,11 +21,12 @@
         <% end %>
       </div>
       <div>
-        <%= f.number_field :fixed_cost, placeholder: "120000", class: "form-bottom" %><span>円</span>
+        <%= f.number_field :fixed_cost, id: "fixed-cost", class: "form-bottom" %><span>円</span>
       </div>
-      <div class="actions">
-        <%= f.submit "確認画面へ" %>
+      <div class="budgets-edit-submit">
+        <%= f.submit "確認画面へ", id: "submit-confirmation" %>
       </div>
+      <%= render "shared/tips" %>
     <% end %>
   </div>
   <div class="main">

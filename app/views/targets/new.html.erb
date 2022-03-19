@@ -8,7 +8,7 @@
           いくら貯めますか?
         </div>
         <div class="form">
-          <%= f.number_field :target_amount, placeholder: "1000000", min: 1 %><span>円</span>
+          <%= f.number_field :target_amount, id: "target-amount", min: 1 %><span>円</span>
         </div>
       </div>
       <div class="field">
@@ -24,7 +24,7 @@
           先月の収入を入力してください
         </div>
         <div class="form">
-          <%= f.number_field :income, placeholder: "250000" %><span>円</span>
+          <%= f.number_field :income, id: "income" %><span>円</span>
         </div>
       </div>
       <div class="field">
@@ -32,13 +32,13 @@
           先月の固定費を入力してください
         </div>
         <div class="form-bottom">
-          <%= f.number_field :fixed_cost, placeholder: "120000" %><span>円</span>
+          <%= f.number_field :fixed_cost, id: "fixed-cost" %><span>円</span>
         </div>
       </div>
       <div class="form-submit">
-        <%= f.submit "確認画面へ" %>
+        <%= f.submit "確認画面へ", id: "submit-confirmation" %>
       </div>
     <% end %>
-    <%= link_to 'ログアウトする', destroy_user_session_path, method: :delete, class: "logout" %>
+    <%= render "shared/tips" %>
   </div>
 </div>
