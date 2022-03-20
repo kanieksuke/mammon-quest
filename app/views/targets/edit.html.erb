@@ -18,9 +18,8 @@
         </div>
       <% end %>
     </div>
-    <div class="damage", id="assumption-damage">
-      <span>想定ダメージ:</span>
-      <%= @attack %>
+    <div class="damage">
+      <span id="assumption-damage">想定ダメージ:<%= @attack %></span>
     </div>
     <div class="battle-form">
       <%= form_with model: @budget, url: edit_target_budget_path(@target.id), method: :get, local: true do |f| %>
