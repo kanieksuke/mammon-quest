@@ -9,8 +9,7 @@
 
 ### Association
 
-- has_many :targets
-- has_many :budgets
+- has_one :target
 
 ## targets テーブル
 
@@ -20,13 +19,15 @@
 |target_date|integer|null: false|
 |current_amount|integer|null: false|
 |current_date|integer|null: false|
-|user|references|null: false, foreign_key: true|
+|attack_date|date||
+|user|integer|null: false|
 
 ### Association
 
 - belongs_to :user
-- has_many :budgets
-- has_many :attack_days
+- has_one :budget
+- has_one :shopping
+- has_many :messages
 
 ## budgets テーブル
 
@@ -34,20 +35,29 @@
 |------|----|-------|
 |income|integer|null: false|
 |fixed_cost|integer|null: false|
-|attack|integer|null: false|
-|resist|integer|null: false|
-|target|references|null: false, foreign_key: true|
+|target|integer|null: false|
 
 ### Association
 
--belongs_to :user
 -belongs_to :target
 
-## attack_days テーブル
+## shoppings テーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|date|date||
+|resist|integer|null: false|
+|target|integer|null: false|
+
+### Association
+
+-belongs_to :target
+
+## messages テーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|text|strings||
+|target|integer|null: false|
 
 ### Association
 
