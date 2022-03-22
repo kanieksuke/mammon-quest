@@ -20,7 +20,7 @@
 |current_amount|integer|null: false|
 |current_date|integer|null: false|
 |attack_date|date||
-|user|references|null: false, foreign_key: true|
+|user|integer|null: false|
 
 ### Association
 
@@ -35,7 +35,7 @@
 |------|----|-------|
 |income|integer|null: false|
 |fixed_cost|integer|null: false|
-|target|references|null: false, foreign_key: true|
+|target|integer|null: false|
 
 ### Association
 
@@ -46,6 +46,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |resist|integer|null: false|
+|target|integer|null: false|
 
 ### Association
 
@@ -56,6 +57,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |text|strings||
+|target|integer|null: false|
 
 ### Association
 
