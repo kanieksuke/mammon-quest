@@ -6,13 +6,9 @@
   </div>
   <div class="main">
     <% if @target.current_amount <= 0 %>
-      <div class="clear-image">
-        <%= image_tag 'maxresdefault.jpeg' %>
-      </div>
+        <%= image_tag 'maxresdefault.jpeg', class: "game-clear-image" %>
     <% else %>
-      <div class="gameover-image">
-        <%= image_tag 'VXgameover1.png' %>
-      </div>
+        <%= image_tag 'VXgameover1.png', class: "game-over-image" %>
     <% end %>
   </div>
   <%= render "shared/message_board", model: @messages %>

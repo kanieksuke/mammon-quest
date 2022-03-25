@@ -43,6 +43,15 @@
   padding-left: 70px;
 }
 
+.game-clear-image {
+  height: 80%;
+  width: 80%;
+}
+
+.game-over-image {
+  height: 100%;
+  width: 100%;
+}
 
 .message-board {
   border: 1px solid white;
