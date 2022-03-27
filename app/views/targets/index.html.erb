@@ -26,14 +26,20 @@
       <div class='text-bottom'>
         一日あたり<%= ((target.budget.income - target.budget.fixed_cost) / @d * (target.target_date - target.current_date) - target.current_amount) / (target.target_date - target.current_date) %>円使えます
       </div>
-      <div class='link'>
-        <%= link_to "マモンと戦う", edit_target_path(target.id), id: "go-to-battle" %>
-      <div>
-      <% if target.current_date == 0 %>
+      <div class='links'>
         <div class='link'>
-          <%= link_to "やり直す", target_path(target.id), method: :delete, id: "return" %>
+          <%= link_to "マモンと戦う", edit_target_path(target.id), id: "go-to-battle" %>
         </div>
-        <h5>※※注意※※ブラウザの戻るボタンで戻って修正しても反映されません</h5>
+          <% if target.current_date == 0 %>
+          <div class='link'>
+            <%= link_to "やり直す", target_path(target.id), method: :delete, id: "return" %>
+          </div>
+          <% end %>
+      </div>
+      <% if target.current_date == 0 %>
+        <div class='warning-text'>
+          <h5>※※注意※※ブラウザの戻るボタンで戻って修正しても反映されません</h5>
+        </div>
       <% end %>
       <% break %>
     <% end %>

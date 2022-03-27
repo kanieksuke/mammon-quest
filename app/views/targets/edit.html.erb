@@ -5,7 +5,7 @@
     </div>
     <div class="battle-form">
       <%= form_with model: @target, url: target_path, local: true do |f| %>
-        <%= f.submit "攻撃をする", id: "attack-button" %>
+        <%= f.submit "攻撃をする", id: "attack-button", data: { confirm: "攻撃します。\nよろしいですか？" } %>
       <% end %>
     </div>
     <div class="battle-form">
@@ -14,7 +14,7 @@
           <%= f.number_field :resist, min: 1 %><span>円</span>
         </div>
         <div class="actions">
-          <%= f.submit "買物をする", id: "shopping-button" %>
+          <%= f.submit "買物をする", id: "shopping-button", data: { confirm: "買物します。 \nよろしいですか？" } %>
         </div>
       <% end %>
     </div>
@@ -28,7 +28,7 @@
     </div>
     <div class="battle-form">
       <%= form_with model: @target, url: target_path, method: :delete, local: true do |f| %>
-        <%= f.submit "あきらめる", id: "destroy-target-button" %>
+        <%= f.submit "あきらめる", id: "destroy-target-button", data: { confirm: "あきらめます。\nよろしいですか？"} %>
       <% end %>
     </div>
     <%= render "shared/tips" %>
