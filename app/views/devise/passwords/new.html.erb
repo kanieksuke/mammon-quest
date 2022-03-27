@@ -1,11 +1,11 @@
 <div class="wrapper">
   <div class="side-bar">
-    <h2>パスワード<br />再設定メールを送信します</h2>
+    <h2 class="password-send-text">パスワード再設定メールを送信します</h2>
 
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="form-bottom">
+      <div class="email-send-form">
         <%= f.label "Eメール" %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
