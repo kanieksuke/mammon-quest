@@ -118,6 +118,9 @@ class TargetsController < ApplicationController
   def move_to_new
     if current_user.target == nil
       redirect_to new_target_path
+    elsif current_user.target.target_date == current_user.target.current_date
+      current_user.target.destroy
+      redirect_to new_target_path
     end
   end
 
