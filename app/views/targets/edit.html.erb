@@ -14,7 +14,7 @@
           <%= f.number_field :resist, min: 1 %><span>円</span>
         </div>
         <div class="actions">
-          <%= f.submit "買物をする", id: "shopping-button", data: { confirm: "買物します。 \nよろしいですか？" } %>
+          <%= f.submit "買物をする", id: "shopping-button", data: { confirm: "買い物します。 \nよろしいですか？" } %>
         </div>
       <% end %>
     </div>
@@ -35,9 +35,7 @@
   </div>
   <div class="main">
     <div class="mammon-data">
-      <div class="mammon">
-        <%= image_tag 'pose-akuma2.jpeg', id:"mammon-image" %>
-      </div>
+      <%= image_tag 'pose-akuma2.jpeg', class:"mammon-image", id:"mammon-image" %>
       <div class="text">
         HP:
         <span id="mammon-hp"><%= @target.current_amount %></span>
