@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <div class="side-bar">
+  <div>
     <h2>初期設定</h2>
     <%= form_with model: @target_budget, url:targets_path, id:'target-form', local: true do |f| %>
       <%= render 'shared/error_messages', model: @target_budget %>
