@@ -3,7 +3,7 @@ class BudgetsController < ApplicationController
 
   def edit
     @target = Target.find(params[:id])
-    @budget = Budget.find(params[:id])
+    @budget = @target.budget
     @messages = @target.messages.includes(:target).order("created_at DESC")
   end
 
