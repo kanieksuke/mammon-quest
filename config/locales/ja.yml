@@ -1,0 +1,8 @@
+ja:
+  activemodel:
+    attributes:
+      target_budget:
+        target_amount: 目標額
+        target_date: 目標期日
+        income: 収入金額
+        fixed_cost: 固定費
