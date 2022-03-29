@@ -109,7 +109,7 @@ function battleTips () {
   getShopping.addEventListener("mouseover", () => {
     getShopping.setAttribute("style", "background-color:gray")
     const getShoppingTips = document.getElementById("tips")
-    var shoppingTips = "買い物をしたら金額を入れて、このボタンをクリックしてください。<br><br>無駄遣いし過ぎると攻撃力が下がるよ！<br><br>欲しがりません勝つまでは٩( 'ω' )و"
+    var shoppingTips = "買い物をしたら金額を入れて、このボタンをクリックしてください。無駄遣いし過ぎると攻撃力が下がるよ！<br><br>※※注意※※<br>1回買い物をすると、入力フォームにその日の買い物の合計金額が表示されます。<br>2回目以降の買い物で再入力する際は、合計額ではなくその買い物で使った金額を入力してください。"
     getShoppingTips.innerHTML = `${shoppingTips}`
   })
 
