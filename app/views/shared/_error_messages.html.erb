@@ -2,7 +2,7 @@
   <div class="error-alert">
     <ul>
       <% model.errors.full_messages.each do |message| %>
-        <% if message != "Current amount can't be blank" %>
+        <% if message != "Current amountを入力してください" && message != "Current amountは数値で入力してください" %>
           <li class='error-message'><%= message %></li>
         <% end %>
       <% end %>

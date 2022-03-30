@@ -39,16 +39,21 @@
   margin-top: 30px;
 }
 
-.password-send-text {
-  position: absolute;
-}
-
 .email-send-form {
   margin: 70px 0 10px 0;
 }
 
+.error-message {
+  margin-top: 10px;
+}
+
 .main {
   width: 40vw;
+}
+
+.mammon-image {
+  width: 80%;
+  height: 40%;
 }
 
 .mammon-data {

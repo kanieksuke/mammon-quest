@@ -5,7 +5,7 @@ class ShoppingsController < ApplicationController
 
   def update
     @target = Target.find(params[:id])
-    @current_shopping = Shopping.find(params[:id])
+    @current_shopping = @target.shopping
     shopping = Shopping.new(shopping_params)
     @current_shopping.resist += shopping.resist
     @current_shopping.save

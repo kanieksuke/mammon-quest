@@ -1,8 +1,8 @@
 <div class="wrapper">
-  <div class="side-bar">
-    <h2>マモンクエストへ<br />ようこそ！</h2>
+  <div>
+    <h2 class="welcome-mammon-quest">マモンクエストへようこそ！</h2>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "error-message") do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="form-bottom">
@@ -19,7 +19,7 @@
       </div>
 
       <div class="form-bottom">
-        確認のため、もう一度パスワードを<br />入力してください<br />
+        確認のため、もう一度パスワードを入力してください<br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
 
