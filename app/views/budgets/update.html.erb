@@ -11,14 +11,14 @@
       目標期日まであと<%= @target.target_date - @target.current_date %>日
     </div>
     <div class='text'>
-      <% if Date.today == Date.new(Time.now.year, Time.now.month, -1).day %>
+      <% if Date.today.day == Date.new(Time.now.year, Time.now.month, -1).day %>
         今月の収入:<%= @target.budget.income %>円
       <% else %>
         先月の収入:<%= @target.budget.income %>円
       <% end %>
     </div>
     <div class='text-semi-bottom'>
-      <% if Date.today == Date.new(Time.now.year, Time.now.month, -1).day %>
+      <% if Date.today.day == Date.new(Time.now.year, Time.now.month, -1).day %>
         今月の固定費:<%= @target.budget.fixed_cost %>円
       <% else %>
         先月の固定費:<%= @target.budget.fixed_cost %>円
