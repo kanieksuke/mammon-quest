@@ -1,64 +1,42 @@
-# テーブル設計
+# アプリケーション名
+マモンクエスト
 
-## users テーブル
+# アプリケーション概要
+目標金額や目標期日等をゲームキャラクターのステータスに反映させ、ゲーム感覚で節約を楽しめる。
 
-|Column|Type|Options|
-|------|----|-------|
-|email|string|null: false|
-|password|string|null: false|
+# URL
+[http://52.202.58.97/users/sign_up](http://52.202.58.97/users/sign_up)
 
-### Association
+# テスト用アカウント
+- Basic認証ID：admin
+- Basic認証パスワード：2222
+- メールアドレス：player@gmail.com
+- パスワード：mammonquest
 
-- has_one :target
+# 利用方法
 
-## targets テーブル
+## 目標設定
+1.ログインページ内「初めてプレイする方はこちら」のリンクをクリックし、新規登録を行う
+2.登録後、「いくら貯めるか」「いつまでに貯めるか」「先月の収入」「先月の固定費」を入力して、確認ボタンを押す
+3.確認画面で1日あたりで使える金額を確認した後、「マモンと戦う」のリンクをクリックしてゲーム開始
 
-|Column|Type|Options|
-|------|----|-------|
-|target_amount|integer|null: false|
-|target_date|integer|null: false|
-|current_amount|integer|null: false|
-|current_date|integer|null: false|
-|attack_date|date||
-|user|integer|null: false|
+## マモンとの戦闘
+1.プレイヤーは1日に1回、マモンに攻撃ができる。<br>
+攻撃力は先月の収入から先月の固定費を差し引いた値を月数で割った値となるが、買い物をするとこの値は下がっていく。
+2.マモンのHPが目標金額、MPが目標期日となる。<br>
+MPは最初0だが、攻撃を受けるたびに1ずつ上昇する。MPが溜まりきるまでにHPを削り切らないと、ゲームオーバーとなる。
 
-### Association
+# アプリケーションを作成した背景
+株で失敗して全財産を失ってしまい、また貯金し直す必要性に迫られた。<br>
+「10ヶ月で100万円貯めるには生活費を1日いくら以内に抑えなければならないか」<br>
+というシミュレーションをして、それを元に生活をしていた。<br>
+使える金額と相談しながら生活するのは楽しかったが、自身の行動でお金が貯まっていく過程を可視化できればもっと楽しくなると考えて当該アプリケーションを開発することにした。
 
-- belongs_to :user
-- has_one :budget
-- has_one :shopping
-- has_many :messages
+# 洗い出した要件
+[要件を定義したシート](https://docs.google.com/spreadsheets/d/1MeHUUnYlXgyHNCk9L-pD9bzMjy9BqGuU2d9NtipgI_U/edit#gid=982722306)
 
-## budgets テーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|income|integer|null: false|
-|fixed_cost|integer|null: false|
-|target|integer|null: false|
-
-### Association
-
--belongs_to :target
-
-## shoppings テーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|resist|integer|null: false|
-|target|integer|null: false|
-
-### Association
-
--belongs_to :target
-
-## messages テーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|text|strings||
-|target|integer|null: false|
-
-### Association
-
--belongs_to :target
+# 実装した機能についての画像
+[ユーザー新規登録](https://gyazo.com/1f9e13b006bebbafa76dbaa7bce13430)
+[目標設定画面](https://gyazo.com/b4e7231a5ccc1ff2f5cf7260c37a03c9)
+[目標確認画面](https://gyazo.com/28d41be7ddf9f7b2bd674f2551db534b)
+[戦闘画面(買い物をした場合)](https://gyazo.com/0c3db9402b2558de284a8cbcd1ad50b8)
