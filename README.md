@@ -59,11 +59,11 @@ MPは最初0ですが、攻撃を受けるたびに1ずつ上昇します。MP�
 - タスク管理
 
 # ローカルでの動作方法
-以下のコマンドを順に実行
-- % git clone https://github.com/kanieksuke/mammon-quest
-- % cd mammon-quest
-- % bundle install
-- % yarn install
+以下のコマンドを順に実行<br>
+% git clone https://github.com/kanieksuke/mammon-quest<br>
+% cd mammon-quest<br>
+% bundle install<br>
+% yarn install<br>
 
 # 工夫したポイント
 目標データをcreateした後、そのidを戦闘画面であるeditアクションに持ち運びするにはどうすれば良いかに難儀しました。<br>
