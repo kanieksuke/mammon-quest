@@ -51,12 +51,12 @@ MPは最初0ですが、攻撃を受けるたびに1ずつ上昇します。MP�
 [![Image from Gyazo](https://i.gyazo.com/88f331ab53e0222ff642a0d817bcd038.png)](https://gyazo.com/88f331ab53e0222ff642a0d817bcd038)
 
 # 開発環境
-- フロントエンド
-- バックエンド
-- インフラ
-- テスト
-- テキストエディタ
-- タスク管理
+- フロントエンド:HTML,CSS,JavaScript
+- バックエンド:ruby(ruby on rails)
+- インフラ:EC2
+- テスト:ruby on rails(rspec)
+- テキストエディタ:VSCode
+- タスク管理:GitHub
 
 # ローカルでの動作方法
 以下のコマンドを順に実行<br>
